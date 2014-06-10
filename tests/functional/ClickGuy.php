@@ -1,12 +1,9 @@
 <?php 
-namespace tests\functional;
 
 class ClickGuy extends TestGuy
 {
     public $baseUrl;
-    
-    public $maxDepth = 3;
-    
+        
     public $except = [
         '/.*\/logout.*$/',
         '/.*\/delete.*/',
@@ -19,22 +16,26 @@ class ClickGuy extends TestGuy
     
     public $visited = [];
     
+    public $cycleLimit = 100;
+    
     public function __construct(\Codeception\Scenario $scenario) 
     {
         parent::__construct($scenario);
-        $this->setBaseUrl();
-    }
-    
-    public function setBaseUrl()
-    {
-        $mainPage = new \tests\_pages\MainPage($this);
-        $this->baseUrl = $mainPage->getUrl();
+        set_time_limit(0);
+        ini_set('memory_limit', '-1');
+        ini_set("xdebug.max_nesting_level", 1000);
+        $this->baseUrl = $this->getUrl('/');
         $this->include[] = '/' . str_replace('/', '\/', $this->baseUrl) . '.*/';
     }
     
-    public function clickThemAll($url)
+    public function getUrl($root, $params = [])
     {
-        ini_set("xdebug.max_nesting_level", 200);
+        $url = array_merge([$root], $params);
+        return Yii::$app->getUrlManager()->createUrl($url);
+    }
+    
+    public function clickAllLinks($url = '')
+    {
         $startUrl = $this->baseUrl . str_replace($this->baseUrl, "", $url);
         $this->visited[] = $startUrl;
         $currentUrls = array_diff($this->getPageUrls($startUrl), $this->urls);
@@ -57,13 +58,15 @@ class ClickGuy extends TestGuy
     {
         $this->amOnPage($startUrl);
         $result = [];
-        while (true) {
+        $limit = $this->cycleLimit;
+        while ($limit) {
             try {
                 $css = $this->getSelector($result);
                 $url = $this->grabAttributeFrom($css, 'href');
             } catch (\Exception $e) {
                 break;
             }
+            $limit--;
             $result[] = $url;
         }
         return $result;
@@ -77,7 +80,7 @@ class ClickGuy extends TestGuy
                 continue;
             }
             try {
-                $this->clickThemAll($url);
+                $this->clickAllLinks($url);
             } catch (\Exception $ex) {
                 echo "Could not open page at " . str_replace($this->baseUrl, "", $url);
                 exit;
