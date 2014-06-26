@@ -14,6 +14,7 @@ $config = [
         'cms'   => [
             'class'         => 'bariew\cmsBootstrap\Cms',
         ],
+        'eventManager' => 'bariew\eventManager\EventManager',
         'urlManager' => [
             'enablePrettyUrl'       => true,
             'showScriptName'        => false,
