@@ -5,13 +5,13 @@ namespace app\modules\user\controllers;
 use Yii;
 use app\modules\user\models\User;
 use app\modules\user\models\UserSearch;
-use \app\modules\main\controllers\AdminController;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends AdminController
+class UserController extends Controller
 {
     /**
      * Lists all User models.

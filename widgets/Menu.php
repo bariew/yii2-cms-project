@@ -1,9 +1,10 @@
 <?php
 
-namespace app\modules\main\widgets;
+namespace app\widgets;
 use Yii;
+use yii\bootstrap\Nav;
 
-class Menu extends \yii\bootstrap\Nav
+class Menu extends Nav
 {
     public $excludedModules = ['main', 'gii', 'debug'];
     

@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
@@ -23,7 +23,8 @@
         "nervo/yuicompressor": "dev-master",
         "bariew/yii2-cms-bootstrap": ">=1.1.0",
         "bariew/yii2-page-cms-module": ">=1.0.1",
-        "bariew/yii2-notice-cms-module": ">=1.0.0"
+        "bariew/yii2-notice-cms-module": ">=1.0.0",
+        "bariew/yii2-rbac-cms-module": "dev-master"
     },
     "require-dev": {
         "codeception/codeception": "*",
@@ -33,7 +34,7 @@
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-apidoc": "*",
-        "bariew/yii2-doctest-extension": "dev-master"
+        "bariew/yii2-doctest-extension": "*"
     },
     "suggest": {
         "codeception/codeception": "Codeception, 1.8.*@dev is currently works well with Yii.",
