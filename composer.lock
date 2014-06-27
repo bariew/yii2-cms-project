@@ -189,16 +189,16 @@
         },
         {
             "name": "bariew/yii2-node-tree",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bariew/yii2-node-tree.git",
-                "reference": "213b64d695ee448bd6787d1632d08ae899d56647"
+                "reference": "ae2978031216a0d8f9042e5871071788afc2dd16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bariew/yii2-node-tree/zipball/213b64d695ee448bd6787d1632d08ae899d56647",
-                "reference": "213b64d695ee448bd6787d1632d08ae899d56647",
+                "url": "https://api.github.com/repos/bariew/yii2-node-tree/zipball/ae2978031216a0d8f9042e5871071788afc2dd16",
+                "reference": "ae2978031216a0d8f9042e5871071788afc2dd16",
                 "shasum": ""
             },
             "type": "yii2-extension",
@@ -224,7 +224,7 @@
                 "tree",
                 "yii2"
             ],
-            "time": "2014-05-29 14:24:30"
+            "time": "2014-06-20 12:25:52"
         },
         {
             "name": "bariew/yii2-notice-cms-module",
@@ -418,16 +418,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.2.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48"
+                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/043e336b871f17a117f76ef8e190eddfc04c8d48",
-                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/2b9af56cc676c338d52fca4c657e5bdff73bb7af",
+                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af",
                 "shasum": ""
             },
             "require": {
@@ -468,7 +468,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-05-08 08:11:19"
+            "time": "2014-06-13 11:44:54"
         },
         {
             "name": "twbs/bootstrap",
@@ -917,16 +917,16 @@
         },
         {
             "name": "codeception/codeception",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "fdf91e9379a551b24b11b53ca64fb28cd5550011"
+                "reference": "07511243c22ab1229047cda593bc6b29fb4511a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/fdf91e9379a551b24b11b53ca64fb28cd5550011",
-                "reference": "fdf91e9379a551b24b11b53ca64fb28cd5550011",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/07511243c22ab1229047cda593bc6b29fb4511a4",
+                "reference": "07511243c22ab1229047cda593bc6b29fb4511a4",
                 "shasum": ""
             },
             "require": {
@@ -982,7 +982,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2014-06-06 04:49:07"
+            "time": "2014-06-21 01:03:08"
         },
         {
             "name": "codeception/specify",
@@ -1098,16 +1098,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1"
+                "reference": "095cf4db559bebc78d967890eb93280d8ceb5a08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
-                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/095cf4db559bebc78d967890eb93280d8ceb5a08",
+                "reference": "095cf4db559bebc78d967890eb93280d8ceb5a08",
                 "shasum": ""
             },
             "require": {
@@ -1159,7 +1159,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-06-08 20:00:20"
+            "time": "2014-06-18 18:22:41"
         },
         {
             "name": "guzzlehttp/streams",
