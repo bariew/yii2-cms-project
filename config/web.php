@@ -7,16 +7,26 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
-    'modules'   => require __DIR__ . '/_modules.php',
+    'modules'   => [
+        'user'  => 'app\modules\user\Module',
+    ],
     'components' => [
         'cms'   => [
             'class'         => 'bariew\cmsBootstrap\Cms',
         ],
+        'eventManager' => 'bariew\eventManager\EventManager',
         'urlManager' => [
             'enablePrettyUrl'       => true,
             'showScriptName'        => false,
             'enableStrictParsing'   => true,
-            'rules' => require __DIR__ . '/_rules.php',
+            'rules' => [
+                '<_m>/<_c>/<_a>'    => '<_m>/<_c>/<_a>',
+                '/'                 => 'default/view',
+                '<view:\S+>'        => 'default/view'
+            ],
+        ],
+        'authManager'   => [
+            'class' => '\yii\rbac\DbManager'
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -26,7 +36,7 @@ $config = [
             'enableAutoLogin'   => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'main/default/error',
+            'errorAction' => 'default/error',
         ],
         'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -42,6 +52,15 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'key',
+                ],
+            ]
+        ],
     ],
     'params' => $params,
 ];

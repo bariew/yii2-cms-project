@@ -11,7 +11,6 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
-    'modules'   => require __DIR__ . '/_modules.php',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -25,6 +24,9 @@ return [
             ],
         ],
         'db' => $db,
+        'authManager'   => [
+            'class' => '\yii\rbac\DbManager'
+        ],
     ],
     'params' => $params,
 ];
