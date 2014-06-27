@@ -7,9 +7,6 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
-    'modules'   => [
-        'user'  => 'app\modules\user\Module',
-    ],
     'components' => [
         'cms'   => [
             'class'         => 'bariew\cmsBootstrap\Cms',
@@ -32,7 +29,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'class'             => 'app\modules\user\models\WebUser',
+            'class'             => 'bariew\userModule\models\WebUser',
             'enableAutoLogin'   => true,
         ],
         'errorHandler' => [
