@@ -11,7 +11,6 @@ $config = [
         'cms'   => [
             'class'         => 'bariew\cmsBootstrap\Cms',
         ],
-        'eventManager' => 'bariew\eventManager\EventManager',
         'urlManager' => [
             'enablePrettyUrl'       => true,
             'showScriptName'        => false,
@@ -27,10 +26,6 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
-        ],
-        'user' => [
-            'class'             => 'bariew\userModule\models\WebUser',
-            'enableAutoLogin'   => true,
         ],
         'errorHandler' => [
             'errorAction' => 'default/error',

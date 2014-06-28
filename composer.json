@@ -53,24 +53,11 @@
     "extra": {
         "writable": [
             "runtime",
-            "web/assets"
+            "web/assets",
+            "web/files"
         ],
         "executable": [
             "yii"
         ]
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/bariew/yii2-notice-cms-module.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/bariew/yii2-page-cms-module.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/Behat/MinkWUnitDriver.git"
-        }
-    ]
+    }
 }
