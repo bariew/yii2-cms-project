@@ -44,7 +44,6 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
         'i18n' => [
             'translations' => [
                 '*' => [
