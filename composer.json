@@ -25,7 +25,7 @@
         "bariew/yii2-page-cms-module": ">=1.0.1",
         "bariew/yii2-notice-cms-module": ">=1.0.0",
         "bariew/yii2-rbac-cms-module": "dev-master",
-        "yiisoft/yii2-jui": "*"
+        "bariew/yii2-user-cms-module": "dev-master"
     },
     "require-dev": {
         "codeception/codeception": "*",
@@ -53,24 +53,11 @@
     "extra": {
         "writable": [
             "runtime",
-            "web/assets"
+            "web/assets",
+            "web/files"
         ],
         "executable": [
             "yii"
         ]
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/bariew/yii2-notice-cms-module.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/bariew/yii2-page-cms-module.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/Behat/MinkWUnitDriver.git"
-        }
-    ]
+    }
 }

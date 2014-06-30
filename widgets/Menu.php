@@ -23,7 +23,7 @@ class Menu extends Nav
     private function adminItems()
     {
         $result = [];
-        if (!Yii::$app->user->isAdmin()) {
+        if (Yii::$app->user->isGuest) {
             return $result;
         }
 
@@ -44,17 +44,13 @@ class Menu extends Nav
         if (Yii::$app->user->isGuest) {
             return [['label'    => 'Login', 'url' => ['/user/default/login']]];
         }
-        $result = [];
-        if (!Yii::$app->user->isAdmin()) {
-            $result[] =  ['label' => 'Blacklists', 'url' => ['/blacklist/default/index']];
-        }
-        $result[] = [
+        $result = [[
             'label'    => Yii::$app->user->identity->username,
             'items' => [
                 ['label'    => 'Profile', 'url' => ['/user/default/update']],
                 ['label'    => 'Logout', 'url' => ['/user/default/logout']]
             ]
-        ];
+        ]];
         return $result;
     }
 }

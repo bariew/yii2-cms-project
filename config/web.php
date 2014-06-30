@@ -7,14 +7,10 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
-    'modules'   => [
-        'user'  => 'app\modules\user\Module',
-    ],
     'components' => [
         'cms'   => [
             'class'         => 'bariew\cmsBootstrap\Cms',
         ],
-        'eventManager' => 'bariew\eventManager\EventManager',
         'urlManager' => [
             'enablePrettyUrl'       => true,
             'showScriptName'        => false,
@@ -30,10 +26,6 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
-        ],
-        'user' => [
-            'class'             => 'app\modules\user\models\WebUser',
-            'enableAutoLogin'   => true,
         ],
         'errorHandler' => [
             'errorAction' => 'default/error',
@@ -52,7 +44,6 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
         'i18n' => [
             'translations' => [
                 '*' => [
