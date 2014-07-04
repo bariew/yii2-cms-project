@@ -25,7 +25,8 @@
         "bariew/yii2-page-cms-module": ">=1.0.1",
         "bariew/yii2-notice-cms-module": ">=1.0.0",
         "bariew/yii2-rbac-cms-module": "dev-master",
-        "bariew/yii2-user-cms-module": "dev-master"
+        "bariew/yii2-user-cms-module": "dev-master",
+        "bariew/yii2-i18n-cms-module": "dev-master"
     },
     "require-dev": {
         "codeception/codeception": "*",

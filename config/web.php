@@ -17,8 +17,18 @@ $config = [
             'enableStrictParsing'   => true,
             'rules' => [
                 '<_m>/<_c>/<_a>'    => '<_m>/<_c>/<_a>',
-                '/'                 => 'default/view',
-                '<view:\S+>'        => 'default/view'
+                '/'                 => 'site/view',
+                '<view:\S+>'        => 'site/view'
+            ],
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@app/web/themes/default',
+                    '@bariew/i18nModule/views' => '@app/web/themes/default/i18n', // <-- !!!
+                ],
+                'basePath' => '@app/web/themes/default',
+                'baseUrl' => '@web/themes/default',
             ],
         ],
         'authManager'   => [

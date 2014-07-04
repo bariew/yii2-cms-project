@@ -1,6 +1,7 @@
 # yii settings
 /config/db.php
 
+
 # phpstorm project files
 .idea
 
