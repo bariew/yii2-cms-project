@@ -25,6 +25,8 @@ $config = [
             'theme' => [
                 'pathMap' => [
                     '@app/views' => '@app/web/themes/default',
+                    '@app/modules' => '@app/web/themes/default',
+
                     '@bariew/i18nModule/views' => '@app/web/themes/default/i18n', // <-- !!!
                 ],
                 'basePath' => '@app/web/themes/default',
@@ -38,7 +40,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'errorHandler' => [
-            'errorAction' => 'default/error',
+            'errorAction' => 'site/error',
         ],
         'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -54,14 +56,6 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        'i18n' => [
-            'translations' => [
-                '*' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceLanguage' => 'key',
-                ],
-            ]
-        ],
     ],
     'params' => $params,
 ];

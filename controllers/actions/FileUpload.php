@@ -1,26 +1,26 @@
 <?php
 
-namespace app\modules\main\actions;
+namespace app\controllers\actions;
 
 use yii\base\Action;
 use \yii\web\UploadedFile;
+use \Yii;
 use \yii\web\HttpException;
 
 /**
- * Redactor widget image upload action.
+ * Redactor widget file upload action.
  *
  * @param string $attr Model attribute
  * @throws HttpException
  */
-class ImageUpload extends Action 
-{
+class FileUpload extends Action {
+
     public $uploadPath;
     public $uploadUrl;
     public $uploadCreate = false;
     public $permissions = 0774;
 
-    public function run($attr) 
-    {
+    public function run($attr) {
         $name = strtolower($this->controller->id);
         $attribute = strtolower((string) $attr);
 
@@ -45,12 +45,7 @@ class ImageUpload extends Action
         $file = UploadedFile::getInstanceByName('file');
         if ($file instanceof UploadedFile) {
             $attributePath = $this->uploadPath . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . $attribute;
-            if (!in_array(strtolower($file->extension), array('gif', 'png', 'jpg', 'jpeg'))) {
-                throw new HttpException(500, json_encode(
-                    array('error' => 'Invalid file extension ' . $file->extension . '.')
-                ));
-            }
-            $fileName = trim(md5($attribute . time() . uniqid(rand(), true))) . '.' . $file->extension;
+            $fileName = $this->sanitizeFilename($file->name);
             if (!is_dir($attributePath)) {
                 if (!mkdir($attributePath, $this->permissions, true)) {
                     throw new HttpException(500, json_encode(
@@ -67,14 +62,36 @@ class ImageUpload extends Action
             $attributeUrl = $this->uploadUrl . '/' . $name . '/' . $attribute . '/' . $fileName;
             $data = array(
                 'filelink' => $attributeUrl,
+                'filename' => $fileName,
             );
             echo json_encode($data);
             exit;
         } else {
             throw new HttpException(500, json_encode(
-                    array('error' => 'Could not upload file.')
+                array('error' => 'Could not upload file.')
             ));
         }
     }
 
+    protected function sanitizeFilename($name) {
+        // char replace table found at: http://www.php.net/manual/en/function.strtr.php#98669
+        $replaceChars = array(
+            'Š' => 'S', 'š' => 's', 'Ð' => 'Dj', 'Ž' => 'Z', 'ž' => 'z', 'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A',
+            'Å' => 'A', 'Æ' => 'A', 'Ç' => 'C', 'È' => 'E', 'É' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I',
+            'Ï' => 'I', 'Ñ' => 'N', 'Ò' => 'O', 'Ó' => 'O', 'Ô' => 'O', 'Õ' => 'O', 'Ö' => 'O', 'Ø' => 'O', 'Ù' => 'U', 'Ú' => 'U',
+            'Û' => 'U', 'Ü' => 'U', 'Ý' => 'Y', 'Þ' => 'B', 'ß' => 'Ss', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ã' => 'a', 'ä' => 'a',
+            'å' => 'a', 'æ' => 'a', 'ç' => 'c', 'è' => 'e', 'é' => 'e', 'ê' => 'e', 'ë' => 'e', 'ì' => 'i', 'í' => 'i', 'î' => 'i',
+            'ï' => 'i', 'ð' => 'o', 'ñ' => 'n', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'õ' => 'o', 'ö' => 'o', 'ø' => 'o', 'ù' => 'u',
+            'ú' => 'u', 'û' => 'u', 'ý' => 'y', 'ý' => 'y', 'þ' => 'b', 'ÿ' => 'y', 'ƒ' => 'f'
+        );
+        $name = strtr($name, $replaceChars);
+        // convert & to "and", @ to "at", and # to "number"
+        $name = preg_replace(array('/[\&]/', '/[\@]/', '/[\#]/'), array('-and-', '-at-', '-number-'), $name);
+        $name = preg_replace('/[^(\x20-\x7F)]*/', '', $name); // removes any special chars we missed
+        $name = str_replace(' ', '-', $name); // convert space to hyphen
+        $name = str_replace('\'', '', $name); // removes apostrophes
+        $name = preg_replace('/[^\w\-\.]+/', '', $name); // remove non-word chars (leaving hyphens and periods)
+        $name = preg_replace('/[\-]+/', '-', $name); // converts groups of hyphens into one
+        return strtolower($name);
+    }
 }
