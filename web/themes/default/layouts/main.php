@@ -15,6 +15,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <?= Html::csrfMetaTags() ?>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= Html::encode($this->title) ?></title>
@@ -32,9 +33,13 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
+            if (isset(Yii::$app->i18n->widget)) {
+                echo "<div class='btn pull-right'>".Yii::$app->i18n->widget."</div>";
+            }
             echo app\widgets\Menu::widget([
                 'options' => ['class' => 'navbar-nav navbar-right']
             ]);
+
             NavBar::end();
         ?>
 

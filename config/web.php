@@ -4,6 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'Yii CMS',
+    'language'  => 'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
@@ -18,7 +19,6 @@ $config = [
             'rules' => [
                 '<_m>/<_c>/<_a>'    => '<_m>/<_c>/<_a>',
                 '/'                 => 'site/view',
-                '<view:\S+>'        => 'site/view'
             ],
         ],
         'view' => [
@@ -26,8 +26,6 @@ $config = [
                 'pathMap' => [
                     '@app/views' => '@app/web/themes/default',
                     '@app/modules' => '@app/web/themes/default',
-
-                    '@bariew/i18nModule/views' => '@app/web/themes/default/i18n', // <-- !!!
                 ],
                 'basePath' => '@app/web/themes/default',
                 'baseUrl' => '@web/themes/default',

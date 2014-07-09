@@ -51,6 +51,7 @@ class Menu extends Nav
                 ['label'    => 'Logout', 'url' => ['/user/default/logout']]
             ]
         ]];
+
         return $result;
     }
 }
