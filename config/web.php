@@ -17,8 +17,8 @@ $config = [
             'showScriptName'        => false,
             'enableStrictParsing'   => true,
             'rules' => [
-                '<_m>/<_c>/<_a>'    => '<_m>/<_c>/<_a>',
-                '/'                 => 'site/view',
+                '<_a>'    => 'site/<_a>',
+                '/'                 => 'site/index',
             ],
         ],
         'view' => [

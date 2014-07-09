@@ -19,8 +19,8 @@ class SiteController extends Controller
         ];
     }
     
-    public function actionView($view = 'index')
+    public function actionIndex()
     {
-        return $this->render($view);
+        return $this->render('index');
     }
 }
