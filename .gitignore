@@ -1,5 +1,5 @@
 # yii settings
-/config/db.php
+/config/local.php
 
 
 # phpstorm project files

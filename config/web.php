@@ -1,17 +1,16 @@
 <?php
 
-$params = require(__DIR__ . '/params.php');
+$localConfigPath = __DIR__ . '/local.php';
+$localConfig = file_exists($localConfigPath)
+    ? require $localConfigPath : [];
 
-$config = [
+$config = \yii\helpers\ArrayHelper::merge([
     'id' => 'Yii CMS',
     'language'  => 'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
     'components' => [
-        'cms'   => [
-            'class'         => 'bariew\cmsBootstrap\Cms',
-        ],
         'urlManager' => [
             'enablePrettyUrl'       => true,
             'showScriptName'        => false,
@@ -37,7 +36,7 @@ $config = [
             'class' => '\yii\rbac\DbManager'
         ],
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => 'yii\caching\DummyCache',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -55,10 +54,8 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
     ],
-    'params' => $params,
-];
+], $localConfig);
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment

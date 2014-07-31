@@ -1,16 +1,13 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Application Template",
-    "keywords": ["yii2", "framework", "basic", "application template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "bariew/yii2-cms-project",
+    "description": "Yii2 CMS",
+    "keywords": ["yii2", "cms", "basic"],
+    "homepage": "http://www.yii2.anabena.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "source": "https://github.com/bariew/yii2-cms-project"
     },
     "minimum-stability": "dev",
     "require": {
@@ -18,9 +15,9 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "yiisoft/yii2-twig": "*",
         "nervo/yuicompressor": "dev-master",
         "bariew/yii2-cms-bootstrap": ">=1.1.0",
+        "bariew/yii2-config-cms-module": "dev-master",
         "bariew/yii2-page-cms-module": ">=1.0.1",
         "bariew/yii2-notice-cms-module": ">=1.0.0",
         "bariew/yii2-rbac-cms-module": "dev-master",
