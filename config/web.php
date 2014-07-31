@@ -22,16 +22,6 @@ $config = \yii\helpers\ArrayHelper::merge([
                 '/'                 => 'site/index',
             ],
         ],
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@app/web/themes/default',
-                    '@app/modules' => '@app/web/themes/default',
-                ],
-                'basePath' => '@app/web/themes/default',
-                'baseUrl' => '@web/themes/default',
-            ],
-        ],
         'authManager'   => [
             'class' => '\yii\rbac\DbManager'
         ],
