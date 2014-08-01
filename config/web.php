@@ -1,6 +1,6 @@
 <?php
 
-$localConfigPath = __DIR__ . '/local.php';
+$localConfigPath = __DIR__ . '/local/main.php';
 $localConfig = file_exists($localConfigPath)
     ? require $localConfigPath : [];
 
@@ -21,6 +21,9 @@ $config = \yii\helpers\ArrayHelper::merge([
                 '<_m>/<_c>/<_a>' => '<_m>/<_c>/<_a>',
                 '/'                 => 'site/index',
             ],
+        ],
+        'request'   => [
+            'cookieValidationKey'   => 'someKey'
         ],
         'authManager'   => [
             'class' => '\yii\rbac\DbManager'
