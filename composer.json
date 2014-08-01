@@ -25,6 +25,7 @@
         "bariew/yii2-user-cms-module": "dev-master",
         "bariew/yii2-i18n-cms-module": "dev-master",
         "bariew/yii2-event-cms-module": "dev-master",
+        "bariew/yii2-module-cms-module": "dev-master",
         "bariew/yii2-imperavi-redactor": "dev-master"
     },
     "require-dev": {
