@@ -15,12 +15,8 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "nervo/yuicompressor": "dev-master",
         "bariew/yii2-config-cms-module": "dev-master",
-        "bariew/yii2-cms-bootstrap": ">=1.1.0",
         "bariew/yii2-module-cms-module": "dev-master",
-        "bariew/yii2-imperavi-redactor": "dev-master",
-        "composer/composer": "1.0.*@dev",
         "bariew/yii2-i18n-cms-module": "*",
         "bariew/yii2-page-cms-module": "*",
         "bariew/yii2-rbac-cms-module": "*",
@@ -30,19 +26,8 @@
         "bariew/yii2-theme-cms-module": "*"
     },
     "require-dev": {
-        "codeception/codeception": "*",
-        "codeception/specify": "*",
-        "codeception/verify": "*",
-        "yiisoft/yii2-codeception": "*",
         "yiisoft/yii2-debug": "*",
-        "yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-apidoc": "*",
-        "bariew/yii2-doctest-extension": "*"
-    },
-    "suggest": {
-        "codeception/codeception": "Codeception, 1.8.*@dev is currently works well with Yii.",
-        "codeception/specify": "BDD style code blocks for PHPUnit and Codeception",
-        "codeception/verify": "BDD Assertions for PHPUnit and Codeception"
+        "yiisoft/yii2-gii": "*"
     },
     "scripts": {
         "post-create-project-cmd": [
