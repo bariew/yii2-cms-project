@@ -23,13 +23,13 @@ $config = \yii\helpers\ArrayHelper::merge([
             ],
         ],
         'request'   => [
-            'cookieValidationKey'   => 'someKey'
+            'cookieValidationKey'   => 'someValidationKey'
         ],
         'authManager'   => [
             'class' => '\yii\rbac\DbManager'
         ],
         'cache' => [
-            'class' => 'yii\caching\DummyCache',
+            'class' => 'yii\caching\FileCache',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

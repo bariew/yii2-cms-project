@@ -18,15 +18,16 @@
         "nervo/yuicompressor": "dev-master",
         "bariew/yii2-config-cms-module": "dev-master",
         "bariew/yii2-cms-bootstrap": ">=1.1.0",
-        "bariew/yii2-theme-cms-module": "dev-master",
-        "bariew/yii2-page-cms-module": ">=1.0.1",
-        "bariew/yii2-notice-cms-module": ">=1.0.0",
-        "bariew/yii2-rbac-cms-module": "dev-master",
-        "bariew/yii2-user-cms-module": "dev-master",
-        "bariew/yii2-i18n-cms-module": "dev-master",
-        "bariew/yii2-event-cms-module": "dev-master",
         "bariew/yii2-module-cms-module": "dev-master",
-        "bariew/yii2-imperavi-redactor": "dev-master"
+        "bariew/yii2-imperavi-redactor": "dev-master",
+        "composer/composer": "1.0.*@dev",
+        "bariew/yii2-i18n-cms-module": "*",
+        "bariew/yii2-page-cms-module": "*",
+        "bariew/yii2-rbac-cms-module": "*",
+        "bariew/yii2-event-cms-module": "*",
+        "bariew/yii2-notice-cms-module": "*",
+        "bariew/yii2-user-cms-module": "*",
+        "bariew/yii2-theme-cms-module": "*"
     },
     "require-dev": {
         "codeception/codeception": "*",
@@ -57,7 +58,10 @@
             "runtime",
             "web/assets",
             "web/files",
-            "web/themes"
+            "web/themes",
+            "vendor",
+            "composer.json",
+            "/vendor/yiisoft/extensions.php"
         ],
         "executable": [
             "yii"
