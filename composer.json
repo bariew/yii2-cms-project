@@ -23,7 +23,8 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "yii\\composer\\Installer::setPermission"
+            "yii\\composer\\Installer::setPermission",
+            "bariew\\moduleModule\\ModuleBootstrap::setPermission"
         ]
     },
     "config": {
@@ -37,9 +38,10 @@
             "web/files",
             "web/themes",
             "vendor",
+            "vendor/yiisoft/extensions.php",
+            "vendor/bariew",
             "composer.json",
-            "vendor/composer/installed.json",
-            "vendor/bariew"
+            "vendor/composer/installed.json"
         ],
         "executable": [
             "yii"
