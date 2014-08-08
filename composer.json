@@ -31,15 +31,15 @@
     },
     "extra": {
         "writable": [
-            "/config/local",
-            "/runtime",
-            "/web/assets",
-            "/web/files",
-            "/web/themes",
-            "/vendor",
-            "/composer.json",
-            "/vendor/yiisoft/extensions.php",
-            "/vendor/composer/installed.json"
+            "config/local",
+            "runtime",
+            "web/assets",
+            "web/files",
+            "web/themes",
+            "vendor",
+            "composer.json",
+            "vendor/composer/installed.json",
+            "vendor/bariew"
         ],
         "executable": [
             "yii"
