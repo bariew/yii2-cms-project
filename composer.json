@@ -36,12 +36,7 @@
             "runtime",
             "web/assets",
             "web/files",
-            "web/themes",
-            "vendor",
-            "vendor/yiisoft/extensions.php",
-            "vendor/bariew",
-            "composer.json",
-            "vendor/composer/installed.json"
+            "web/themes"
         ],
         "executable": [
             "yii"
