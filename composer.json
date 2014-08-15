@@ -1,6 +1,6 @@
 {
     "name": "bariew/yii2-cms-project",
-    "description": "Yii2 CMS",
+    "description": "Yii2 Null CMS",
     "keywords": ["yii2", "cms", "basic"],
     "homepage": "http://www.yii2.anabena.com/",
     "type": "project",
@@ -16,6 +16,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "bariew/yii2-module-cms-module": "dev-master"
+
     },
     "require-dev": {
         "yiisoft/yii2-debug": "*",

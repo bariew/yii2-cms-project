@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Alert;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use app\views\AppAsset;
 
 /**
  * @var \yii\web\View $this
@@ -21,7 +21,6 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
-
 <?php $this->beginBody() ?>
     <div class="wrap">
         <div class="container">
@@ -30,7 +29,7 @@ AppAsset::register($this);
             ]) ?>
             <?php foreach(Yii::$app->session->getAllFlashes() as $key=>$message): ?>
                 <?= Alert::widget([
-                    'options' => ['class' => 'alert-'.$key],
+                    'options' => ['class' => 'alert-'.($key == 'error' ? 'danger' : $key)],
                     'body' => $message,
                 ]); ?>
             <?php endforeach; ?>
@@ -39,11 +38,10 @@ AppAsset::register($this);
     </div>
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+            <p class="pull-left">&copy; NullCMS <?= date('Y') ?></p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
-
 <?php $this->endBody() ?>
 </body>
 </html>

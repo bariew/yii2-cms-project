@@ -1,6 +1,3 @@
-# yii settings
-/config/local.php
-
 # phpstorm project files
 .idea
 
