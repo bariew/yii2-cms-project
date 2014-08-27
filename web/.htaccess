@@ -1,0 +1,23 @@
+AddDefaultCharset UTF-8
+AddType text/x-component .htc
+
+FileETag None
+AddType image/x-icon .ico
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "acess plus 30 days"
+    ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>
+
+Options -Indexes
+
+ErrorDocument 403 /errors/403
+ErrorDocument 404 /errors/404
+ErrorDocument 500 /errors/500
+
+RewriteEngine On
+
+RewriteRule ^files/(.*).[php|phtml|php3|php4|php5|pl]$ /errors/404
+RewriteCond $1 !^(index\.php|css|robots.txt|assets|files|favicon.ico)
+RewriteRule ^(.*)$ /index.php?/$1 [QSA,NC]

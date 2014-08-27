@@ -11,6 +11,13 @@ $config = \yii\helpers\ArrayHelper::merge([
     'bootstrap' => ['log'],
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
     'components' => [
+        'i18n'  => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl'       => true,
             'showScriptName'        => false,
