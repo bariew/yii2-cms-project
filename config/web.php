@@ -54,7 +54,16 @@ $config = \yii\helpers\ArrayHelper::merge([
                 ],
             ],
         ],
+        'db'    => [
+            'class' => '\yii\db\Connection',
+            'dsn'   => 'mysql:host=localhost;dbname=cms',
+            'username' => 'root',
+            'password'  => '',
+        ]
     ],
+    'params'    => [
+        'adminEmail'    => 'your.email@site.com'
+    ]
 ], $localConfig);
 
 if (YII_ENV_DEV) {
