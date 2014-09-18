@@ -5,7 +5,8 @@ $localConfig = file_exists($localConfigPath)
     ? require $localConfigPath : [];
 
 $config = \yii\helpers\ArrayHelper::merge([
-    'id' => 'Yii CMS',
+    'id' => 'app',
+    'name'  => 'NullCMS',
     'language'  => 'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -56,10 +57,20 @@ $config = \yii\helpers\ArrayHelper::merge([
         ],
         'db'    => [
             'class' => '\yii\db\Connection',
-            'dsn'   => 'mysql:host=localhost;dbname=cms',
+            'dsn'   => 'mysql:host=localhost;dbname=nullcms',
             'username' => 'root',
             'password'  => '',
-        ]
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@app/web/themes/null',
+                    '@app/modules' => '@app/web/themes/null',
+                ],
+                'basePath' => '@app/web/themes/null',
+                'baseUrl' => '@web/themes/null',
+            ],
+        ],
     ],
     'params'    => [
         'adminEmail'    => 'your.email@site.com'

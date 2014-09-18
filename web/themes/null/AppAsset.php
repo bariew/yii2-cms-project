@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace app\views;
+namespace app\web\themes\null;
 
 use yii\web\AssetBundle;
 

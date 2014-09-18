@@ -16,7 +16,6 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "bariew/yii2-module-cms-module": "dev-master"
-
     },
     "require-dev": {
         "yiisoft/yii2-debug": "*",

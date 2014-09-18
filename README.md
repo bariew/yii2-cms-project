@@ -1,3 +1,3 @@
-Yii2 Null CMS
+Yii2 NullCMS
 ================================
 In development.
