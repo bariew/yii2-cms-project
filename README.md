@@ -26,4 +26,3 @@ INSTALLATION
 ### Run migrations ./yii migrate
 
 ### maybe you will need to give server access to your application folders
-

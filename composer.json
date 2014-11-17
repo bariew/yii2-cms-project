@@ -6,14 +6,16 @@
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
-        "source": "https://github.com/bariew/yii2-cms-project"
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
     },
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
-        "bower-asset/bootstrap": "3.2.*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "bariew/yii2-module-cms-module": "dev-master"
@@ -22,26 +24,35 @@
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*"
     },
-    "scripts": {
-        "post-create-project-cmd": [
-            "yii\\composer\\Installer::setPermission",
-            "bariew\\moduleModule\\ModuleBootstrap::setPermission"
-        ]
-    },
     "config": {
         "process-timeout": 1800
     },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject",
+            "bariew\\moduleModule\\ModuleBootstrap::setPermission"
+        ]
+    },
     "extra": {
-        "writable": [
-            "config/local",
-            "runtime",
-            "web/assets",
-            "web/files",
-            "web/themes"
-        ],
-        "executable": [
-            "yii"
-        ],
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "web/files": "0777",
+                    "web/themes": "0777",
+                    "config/local": "0777",
+                    "vendor" : "0777",
+                    "vendor/bariew" : "0777",
+                    "composer.json" : "0777",
+                    "composer.lock" : "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        },
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
