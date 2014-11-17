@@ -29,8 +29,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "yii\\composer\\Installer::postCreateProject",
-            "bariew\\moduleModule\\ModuleBootstrap::setPermission"
+            "yii\\composer\\Installer::postCreateProject"
         ]
     },
     "extra": {
