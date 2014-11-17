@@ -13,6 +13,7 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
+        "bower-asset/bootstrap": "3.2.*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "bariew/yii2-module-cms-module": "dev-master"
@@ -40,6 +41,10 @@
         ],
         "executable": [
             "yii"
-        ]
+        ],
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
     }
 }

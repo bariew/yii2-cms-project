@@ -1,8 +1,7 @@
 <?php
 
 $localConfigPath = __DIR__ . '/local/main.php';
-$localConfig = file_exists($localConfigPath)
-    ? require $localConfigPath : [];
+$localConfig = file_exists($localConfigPath) ? require $localConfigPath : [];
 
 $config = \yii\helpers\ArrayHelper::merge([
     'id' => 'app',
