@@ -71,6 +71,10 @@ $config = \yii\helpers\ArrayHelper::merge([
             ],
         ],
     ],
+    'modules' => [
+        'config' => 'bariew\configModule\Module',
+        'module' => 'bariew\moduleModule\Module'
+    ],
     'params'    => [
         'adminEmail'    => 'your.email@site.com'
     ]
