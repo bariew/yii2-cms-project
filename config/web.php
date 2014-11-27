@@ -1,15 +1,13 @@
 <?php
-
 $localConfigPath = __DIR__ . '/local/main.php';
 $localConfig = file_exists($localConfigPath) ? require $localConfigPath : [];
 
-$config = \yii\helpers\ArrayHelper::merge([
+$mainConfig = array_merge([
     'id' => 'app',
     'name'  => 'NullCMS',
     'language'  => 'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
     'components' => [
         'i18n'  => [
             'translations' => [
@@ -58,7 +56,7 @@ $config = \yii\helpers\ArrayHelper::merge([
             'class' => '\yii\db\Connection',
             'dsn'   => 'mysql:host=localhost;dbname=nullcms',
             'username' => 'root',
-            'password'  => '',
+            'password'  => 'root',
         ],
         'view' => [
             'theme' => [
@@ -72,8 +70,15 @@ $config = \yii\helpers\ArrayHelper::merge([
         ],
     ],
     'modules' => [
-        'config' => 'bariew\configModule\Module',
-        'module' => 'bariew\moduleModule\Module'
+        'config' => 'bariew\\configModule\\Module',
+        'module' => 'bariew\\moduleModule\\Module',
+        'rbac'   => 'bariew\\rbacModule\\Module',
+        'notice' => 'bariew\\noticeModule\\Module',
+        'page'   => 'bariew\\pageModule\\Module',
+        'user'   => 'bariew\\userModule\\Module',
+        'i18n'   => 'bariew\\i18nModule\\Module',
+        'event'  => 'bariew\\eventModule\\Module',
+        'theme'  => 'bariew\\themeModule\\Module',
     ],
     'params'    => [
         'adminEmail'    => 'your.email@site.com'
@@ -82,14 +87,15 @@ $config = \yii\helpers\ArrayHelper::merge([
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
+    $mainConfig['bootstrap'][] = 'debug';
+    $mainConfig['modules']['debug'] = [
         'class'=>'yii\debug\Module',
          'allowedIPs' => ['*']
     ];
 
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = 'yii\gii\Module';
+    $mainConfig['bootstrap'][] = 'gii';
+    $mainConfig['modules']['gii'] = 'yii\gii\Module';
 }
+$mainConfig['extensions'] = require(__DIR__ . '/../vendor/yiisoft/extensions.php');
 
-return $config;
+return $mainConfig;

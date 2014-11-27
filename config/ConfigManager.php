@@ -35,12 +35,6 @@ class ConfigManager extends \yii\base\Model
         return $this->save();
     }
 
-    public function remove($key)
-    {
-        unset($this->localConfig[$key]);
-        return $this->save();
-    }
-
     public function save()
     {
         $content = '<?php return '. var_export($this->localConfig, true) . ';';

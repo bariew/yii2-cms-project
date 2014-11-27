@@ -1,8 +1,8 @@
 <?php
 
 Yii::setAlias('@tests', dirname(__DIR__) . '/tests');
-$localConfigPath = __DIR__ . '/local/main.php';
-$localConfig = file_exists($localConfigPath) ? require $localConfigPath : [];
+$mainConfigPath = __DIR__ . '/web.php';
+$mainConfig = file_exists($mainConfigPath) ? require $mainConfigPath : [];
 
 return [
     'id' => 'basic-console',
@@ -24,6 +24,7 @@ return [
         'authManager'   => [
             'class' => '\yii\rbac\DbManager'
         ],
-        'db'    => @$localConfig['components']['db']
+        'db'    => $mainConfig['components']['db']
     ],
+    'modules' => $mainConfig['modules'],
 ];
