@@ -72,13 +72,6 @@ $mainConfig = array_merge([
     'modules' => [
         'config' => ['class' => 'bariew\\configModule\\Module'],
         'module' => ['class' => 'bariew\\moduleModule\\Module'],
-        'rbac'   => ['class' => 'bariew\\rbacModule\\Module'],
-        'notice' => ['class' => 'bariew\\noticeModule\\Module'],
-        'page'   => ['class' => 'bariew\\pageModule\\Module'],
-        'user'   => ['class' => 'bariew\\userModule\\Module'],
-        'i18n'   => ['class' => 'bariew\\i18nModule\\Module'],
-        'event'  => ['class' => 'bariew\\eventModule\\Module'],
-        'theme'  => ['class' => 'bariew\\themeModule\\Module'],
     ],
     'params'    => [
         'adminEmail'    => 'your.email@site.com'
