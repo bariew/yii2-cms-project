@@ -1,8 +1,4 @@
-<?php
-$localConfigPath = __DIR__ . '/local/main.php';
-$localConfig = file_exists($localConfigPath) ? require $localConfigPath : [];
-
-$mainConfig = array_merge([
+<?php return array_merge([
     'id' => 'app',
     'name'  => 'NullCMS',
     'language'  => 'en',
@@ -76,19 +72,4 @@ $mainConfig = array_merge([
     'params'    => [
         'adminEmail'    => 'your.email@site.com'
     ]
-], $localConfig);
-
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $mainConfig['bootstrap'][] = 'debug';
-    $mainConfig['modules']['debug'] = [
-        'class'=>'yii\debug\Module',
-         'allowedIPs' => ['*']
-    ];
-
-    $mainConfig['bootstrap'][] = 'gii';
-    $mainConfig['modules']['gii'] = 'yii\gii\Module';
-}
-$mainConfig['extensions'] = require(__DIR__ . '/../vendor/yiisoft/extensions.php');
-
-return $mainConfig;
+], (file_exists(__DIR__ . '/local/main.php') ? (require __DIR__ . '/local/main.php') : []));
