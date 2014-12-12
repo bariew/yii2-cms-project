@@ -16,9 +16,9 @@
     "require": {
         "php": ">=5.4.0",
         "fxp/composer-asset-plugin": "*",
-        "yiisoft/yii2": "*",
-        "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*",
+        "yiisoft/yii2": "2.0.1",
+        "yiisoft/yii2-bootstrap": "2.0.1",
+        "yiisoft/yii2-swiftmailer": "2.0.1",
         "bariew/yii2-module-cms-module": "dev-master",
         "bariew/yii2-config-cms-module": "dev-master",
         "bariew/yii2-rbac-cms-module": "dev-master",
@@ -30,8 +30,8 @@
         "bariew/yii2-theme-cms-module": "dev-master"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "*",
-        "yiisoft/yii2-gii": "*"
+        "yiisoft/yii2-debug": "2.0.1",
+        "yiisoft/yii2-gii": "2.0.1"
     },
 
     "config": {
@@ -53,9 +53,6 @@
                     "config/local": "0777",
                     "yii": "0755"
                 }
-            ],
-            "generateCookieValidationKey": [
-                "config/web.php"
             ]
         },
         "asset-installer-paths": {
