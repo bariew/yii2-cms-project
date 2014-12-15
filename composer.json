@@ -27,7 +27,8 @@
         "bariew/yii2-user-cms-module": "dev-master",
         "bariew/yii2-i18n-cms-module": "dev-master",
         "bariew/yii2-event-cms-module": "dev-master",
-        "bariew/yii2-theme-cms-module": "dev-master"
+        "bariew/yii2-theme-cms-module": "dev-master",
+        "bariew/phptools": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "2.0.1",

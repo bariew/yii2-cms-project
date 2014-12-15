@@ -7,33 +7,49 @@
 
 namespace app\config;
 
+use bariew\phptools\FileModel;
+
 /**
- * Description.
+ * This class is for reading and writing config file data.
  *
- * Usage:
+ * @examples:
+ * 1. Getting all data: $config = ConfigManager::getData();
+ * 2. Changing data: $config['components']['user']['userIdentity'] = 'my/class/Name';
+ * 3. Setting all data: ConfigManager::put($config);
+ *
+ * You can operate with multidimensional arrays in a special way:
+ * Removing data by multidimensional key ConfigManager::remove(['components', 'user', 'userIdentity'])
+ *  - removes config['components']['user']['userIdentity']
+ * Getting data by simple key: ConfigManager::get('modules')
+ * Setting data by multidimensional key: ConfigManager::set(['modules', 'user'], 'my/user/Module')
+ *
  * @author Pavel Bariev <bariew@yandex.ru>
  */
 
 class ConfigManager
 {
     /**
-     * @var string path to write content to.
-     */
-    private static $writePath = '@app/config/local/main.php';
-
-    /**
      * @var mixed file data.
      */
-    public static $data;
+    private static $_file;
 
+    /**
+     * @return FileModel
+     */
+    private static function getFile()
+    {
+        return self::$_file !== null
+            ? self::$_file
+            : self::$_file = new FileModel(\Yii::getAlias('@app/config/web.php'), [
+                'writePath' => \Yii::getAlias('@app/config/local/main.php')
+            ]);
+    }
     /**
      * Setting model options. Read path is required.
      */
     public static function getData()
     {
-        return (self::$data === null)
-            ? self::$data = require \Yii::getAlias('@app/config/web.php')
-            : self::$data;
+        return self::getFile()->data;
     }
 
     /**
@@ -47,25 +63,7 @@ class ConfigManager
      */
     public static function set($key, $value)
     {
-        $config = self::getData();
-        if (!$key) {
-            $config = array_merge($config, $value);
-        }
-        $key = is_array($key) ? $key : [$key];
-
-        $data = &$config;
-        while ($key) {
-            $k = array_shift($key);
-            $config[$k] = isset($config[$k]) ? $config[$k] : [];
-            $config[$k] = $key
-                ? $config[$k]
-                : (is_array($value)
-                    ? array_merge($config[$k], $value)
-                    : $value);
-            $config = &$config[$k];
-        }
-        self::$data = $data;
-        return self::save();
+        return self::getFile()->set($key, $value);
     }
 
     /**
@@ -76,13 +74,7 @@ class ConfigManager
      */
     public static function get($key)
     {
-        $key = is_array($key) ? $key : [$key];
-        $config = self::getData();
-        while ($key) {
-            $k = array_shift($key);
-            $config = isset($config[$k]) ? $config[$k] : [];
-        }
-        return $config;
+        return self::getFile()->get($key);
     }
 
     /**
@@ -93,20 +85,7 @@ class ConfigManager
      */
     public static function remove($key)
     {
-        $key = is_array($key) ? $key : [$key];
-        $config = self::getData();
-        $data = &$config;
-        while ($key) {
-            $k = array_shift($key);
-            if (!$key) {
-                unset($config[$k]);
-                break;
-            }
-            $config[$k] = isset($config[$k]) ? $config[$k] : [];
-            $config = &$config[$k];
-        }
-        self::$data = $data;
-        return self::save();
+        return self::getFile()->remove($key);
     }
 
     /**
@@ -117,11 +96,7 @@ class ConfigManager
      */
     public static function put($data)
     {
-        if ($errorKeys = array_diff_key($data, self::getData())) {
-            throw new \Exception("Wrong config keys: " . implode(', ', $errorKeys));
-        }
-        self::$data = array_merge(self::getData(), $data);
-        return self::save();
+        return self::getFile()->put($data);
     }
 
     /**
@@ -130,9 +105,6 @@ class ConfigManager
      */
     public static function save()
     {
-        $content = '<?php return '. var_export(self::getData(), true) . ';';
-        apc_clear_cache();
-        opcache_reset();
-        return file_put_contents(\Yii::getAlias(self::$writePath), $content);
+        return self::getFile()->save();
     }
 } 
