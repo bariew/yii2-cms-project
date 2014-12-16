@@ -1,5 +1,14 @@
 Yii2 NullCMS
 ================================
+Project with preinstalled modules for managing other modules and app configs.
+
+It aims to be an "empty" CMS which doesn't limit external modules with doing what they need to.
+You may develop and include your own yii2 module with no need to "follow rules" of this CMS.
+Because it doesn't have any.
+
+It has includes user, rbac, i18n, notice(mail), page, event, theme modules.
+You may require other modules with composer and choose them from admin area.
+
 
 REQUIREMENTS
 ------------
@@ -11,18 +20,12 @@ and MySQL 5 database engine.
 INSTALLATION
 ------------
 
-### Clone git repo
-
-### Run Composer from / folder:
-
-### composer.phar self-update
+### php composer.phar self-update
 
 ### php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
 
-### composer.phar install
+### php composer.phar create-project bariew/yii2-cms-project
 
-### Configurate your database access data in config/db.php
 
-### Run migrations ./yii migrate
 
-### maybe you will need to give server access to your application folders
+
