@@ -107,4 +107,23 @@ class ConfigManager
     {
         return self::getFile()->save();
     }
+
+    /**
+     * Finds value in params.
+     * @param $key
+     * @param $value
+     * @return bool
+     */
+    public static function find($key, $value)
+    {
+        $data = self::get($key);
+        if (!is_array($data)) {
+            return $data == $value;
+        }
+        $result = false;
+        array_walk_recursive($data, function ($v) use ($result, $value) {
+            if ($v === $value) $result = true;
+        });
+        return $result;
+    }
 } 

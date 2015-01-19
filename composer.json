@@ -16,9 +16,9 @@
     "require": {
         "php": ">=5.4.0",
         "fxp/composer-asset-plugin": "*",
-        "yiisoft/yii2": "2.0.1",
-        "yiisoft/yii2-bootstrap": "2.0.1",
-        "yiisoft/yii2-swiftmailer": "2.0.1",
+        "yiisoft/yii2": "2.0.2",
+        "yiisoft/yii2-bootstrap": "2.0.2",
+        "yiisoft/yii2-swiftmailer": "2.0.2",
         "bariew/yii2-module-cms-module": "dev-master",
         "bariew/yii2-config-cms-module": "dev-master",
         "bariew/yii2-rbac-cms-module": "dev-master",
@@ -28,15 +28,17 @@
         "bariew/yii2-i18n-cms-module": "dev-master",
         "bariew/yii2-event-cms-module": "dev-master",
         "bariew/yii2-theme-cms-module": "dev-master",
-        "bariew/phptools": "dev-master"
+        "bariew/phptools": "dev-master",
+        "composer/composer": "~1.0@dev",
+        "symfony/console": "2.3"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "2.0.1",
-        "yiisoft/yii2-gii": "2.0.1"
+        "yiisoft/yii2-debug": "2.0.2",
+        "yiisoft/yii2-gii": "2.0.2"
     },
-
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "github-protocols" : ["https"]
     },
     "scripts": {
         "post-create-project-cmd": [
