@@ -21,16 +21,14 @@
         "yiisoft/yii2-swiftmailer": "2.0.2",
         "bariew/yii2-module-cms-module": "dev-master",
         "bariew/yii2-config-cms-module": "dev-master",
+        "bariew/yii2-i18n-cms-module": "dev-master",
         "bariew/yii2-rbac-cms-module": "dev-master",
         "bariew/yii2-notice-cms-module": "dev-master",
         "bariew/yii2-page-cms-module": "dev-master",
         "bariew/yii2-user-cms-module": "dev-master",
-        "bariew/yii2-i18n-cms-module": "dev-master",
         "bariew/yii2-event-cms-module": "dev-master",
         "bariew/yii2-theme-cms-module": "dev-master",
-        "bariew/phptools": "dev-master",
-        "composer/composer": "~1.0@dev",
-        "symfony/console": "2.3"
+        "bariew/phptools": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "2.0.2",
@@ -38,15 +36,17 @@
     },
     "config": {
         "process-timeout": 1800,
-        "github-protocols" : ["https"]
+        "github-oauth" : {
+            "github.com" : "ab87605ca3f6922bd227d3d5a6651cd014da296f"
+        }
     },
     "scripts": {
         "post-create-project-cmd": [
-            "yii\\composer\\Installer::postCreateProject"
+            "bariew\\moduleModule\\ModuleBootstrap::postCreateProject"
         ]
     },
     "extra": {
-        "yii\\composer\\Installer::postCreateProject": {
+        "bariew\\moduleModule\\ModuleBootstrap::postCreateProject": {
             "setPermission": [
                 {
                     "runtime": "0777",
@@ -54,7 +54,13 @@
                     "web/files": "0777",
                     "web/themes": "0777",
                     "config/local": "0777",
-                    "yii": "0755"
+                    "yii": "0755",
+
+                    "composer.json" : "0777",
+                    "composer.lock" : "0777",
+                    "migrations" : "0777",
+                    "modules" : "0777",
+                    "vendor" : "0777"
                 }
             ]
         },
