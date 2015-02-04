@@ -35,10 +35,7 @@
         "yiisoft/yii2-gii": "2.0.2"
     },
     "config": {
-        "process-timeout": 1800,
-        "github-oauth" : {
-            "github.com" : "ab87605ca3f6922bd227d3d5a6651cd014da296f"
-        }
+        "process-timeout": 1800
     },
     "scripts": {
         "post-create-project-cmd": [
