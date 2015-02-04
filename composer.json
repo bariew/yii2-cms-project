@@ -42,11 +42,11 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "bariew\\moduleModule\\ModuleBootstrap::postCreateProject"
+            "yii\\composer\\Installer::postCreateProject"
         ]
     },
     "extra": {
-        "bariew\\moduleModule\\ModuleBootstrap::postCreateProject": {
+        "yii\\composer\\Installer::postCreateProject": {
             "setPermission": [
                 {
                     "runtime": "0777",
@@ -54,13 +54,7 @@
                     "web/files": "0777",
                     "web/themes": "0777",
                     "config/local": "0777",
-                    "yii": "0755",
-
-                    "composer.json" : "0777",
-                    "composer.lock" : "0777",
-                    "migrations" : "0777",
-                    "modules" : "0777",
-                    "vendor" : "0777"
+                    "yii": "0755"
                 }
             ]
         },
