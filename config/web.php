@@ -1,9 +1,9 @@
-<?php return array_merge([
+<?php return \yii\helpers\ArrayHelper::merge([
     'id' => 'app',
     'name'  => 'NullCMS',
     'language'  => 'en',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [],
     'components' => [
         'i18n'  => [
             'translations' => [

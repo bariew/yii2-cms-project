@@ -31,25 +31,47 @@ class ConfigManager
     /**
      * @var mixed file data.
      */
-    private static $_file;
+    private static $_files = [];
 
     /**
      * @return FileModel
      */
-    private static function getFile()
+    private static function getFile($path)
     {
-        return self::$_file !== null
-            ? self::$_file
-            : self::$_file = new FileModel(\Yii::getAlias('@app/config/web.php'), [
-                'writePath' => \Yii::getAlias('@app/config/local/main.php')
-            ]);
+        if (isset(self::$_files[$path])) {
+            return self::$_files[$path];
+        }
+        if (!file_exists($path)) {
+            file_put_contents($path, '<?php return [];');
+        }
+        return self::$_files[$path] = new FileModel($path);
     }
+
+    private static function getReadFile()
+    {
+        return self::getFile(\Yii::getAlias('@app/config/web.php'));
+    }
+
+    private static function getWriteFile()
+    {
+        return self::getFile(\Yii::getAlias('@app/config/local/main.php'));
+    }
+
     /**
      * Setting model options. Read path is required.
      */
-    public static function getData()
+    public static function getReadData()
     {
-        return self::getFile()->data;
+        return self::getReadFile()->data;
+    }
+
+
+    /**
+     * Setting model options. Read path is required.
+     */
+    public static function getWriteData()
+    {
+        return self::getReadFile()->data;
     }
 
     /**
@@ -63,7 +85,7 @@ class ConfigManager
      */
     public static function set($key, $value)
     {
-        return self::getFile()->set($key, $value);
+        return self::getWriteFile()->set($key, $value);
     }
 
     /**
@@ -74,7 +96,7 @@ class ConfigManager
      */
     public static function get($key)
     {
-        return self::getFile()->get($key);
+        return self::getReadFile()->get($key);
     }
 
     /**
@@ -85,7 +107,7 @@ class ConfigManager
      */
     public static function remove($key)
     {
-        return self::getFile()->remove($key);
+        return self::getWriteFile()->remove($key);
     }
 
     /**
@@ -96,7 +118,7 @@ class ConfigManager
      */
     public static function put($data)
     {
-        return self::getFile()->put($data);
+        return self::getWriteFile()->put($data);
     }
 
     /**
@@ -105,7 +127,7 @@ class ConfigManager
      */
     public static function save()
     {
-        return self::getFile()->save();
+        return self::getWriteFile()->save();
     }
 
     /**
