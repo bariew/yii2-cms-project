@@ -1,6 +1,6 @@
 <?php
 $serverName = preg_replace('/\:\d+/', '', $_SERVER['HTTP_HOST']);
-if(preg_match('/.*\.dev$/', $serverName)){
+if(preg_match('/.*\.dev|\.loc$/', $serverName)){
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
     defined('YII_DEBUG') or define('YII_DEBUG', true);

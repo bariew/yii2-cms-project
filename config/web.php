@@ -18,14 +18,15 @@
             'enableStrictParsing'   => true,
             'rules' => [
                 '<_m>/<_c>/<_a>' => '<_m>/<_c>/<_a>',
-                '/'                 => 'site/index',
+                '/'              => 'site/index',
             ],
         ],
         'request'   => [
             'cookieValidationKey'   => 'someValidationKey'
         ],
         'authManager'   => [
-            'class' => '\yii\rbac\DbManager'
+            'class' => '\yii\rbac\DbManager',
+            'cache' => 'cache',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
