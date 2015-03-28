@@ -56,7 +56,8 @@
                     "config/local": "0777",
                     "yii": "0755",
 
-                    "migrations" : "0777"
+                    "migrations" : "0777",
+                    "modules" : "0777"
                 }
             ]
         },

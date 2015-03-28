@@ -5,7 +5,8 @@ return [
     'basePath' => dirname(__DIR__),
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
     'components' => [
-        'db'    => $mainConfig['components']['db']
+        'db'    => $mainConfig['components']['db'],
+        'authManager' => $mainConfig['components']['authManager'],
     ],
     'modules' => $mainConfig['modules'],
 ];
