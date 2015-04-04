@@ -30,7 +30,7 @@ AppAsset::register($this);
             <?php foreach(Yii::$app->session->getAllFlashes() as $key=>$message): ?>
                 <?= Alert::widget([
                     'options' => ['class' => 'alert-'.($key == 'error' ? 'danger' : $key)],
-                    'body' => $message,
+                    'body' => implode("<hr />", (array) $message),
                 ]); ?>
             <?php endforeach; ?>
             <?= $content ?>
