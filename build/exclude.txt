@@ -1,0 +1,15 @@
+.hg
+.git
+.buildpath
+.project
+.settings
+nbproject
+.idea
+Thumbs.db
+.DS_Store
+
+/vendor
+/config/local/*
+/web/files/*
+/web/assets/*
+/runtime/*

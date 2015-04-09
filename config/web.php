@@ -17,6 +17,21 @@
         'user' => [
             'identityClass' => 'bariew\\userModule\\models\\User',
         ],
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'google' => [
+                    'class' => 'yii\authclient\clients\GoogleOAuth',
+                    'clientId' => '',
+                    'clientSecret' => '',
+                ],
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'clientId' => '',
+                    'clientSecret' => '',
+                ],
+            ],
+        ],
         'i18n'  => [
             'translations' => [
                 '*' => [
@@ -33,6 +48,22 @@
                 '/' => 'page/default/view',
                 '<url:\\S+>' => 'page/default/view',
             ],
+        ],
+        'event' => [
+            'class'  => 'bariew\eventManager\EventManager',
+            'events' => [
+                'yii\web\Controller' => [
+                    'beforeAction' => [
+                        //['bariew\rbacModule\components\EventHandlers', 'beforeActionAccess']
+                    ]
+                ],
+                'yii\web\Response' => [
+                    'afterPrepare' => [
+                        //['bariew\rbacModule\components\EventHandlers', 'responseAfterPrepare']
+                    ]
+                ],
+
+            ]
         ],
         'theme' => [
             'pathMap' => [
@@ -57,7 +88,7 @@
         ],
         'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport'=>false,
+            'useFileTransport' => false,
 //            'transport' => [
 //                'class' => 'Swift_SmtpTransport',
 //                'host' => 'smtp.gmail.com',
@@ -90,8 +121,6 @@
     'modules' => [
         'config' => ['class' => 'bariew\\configModule\\Module'],
         'module' => ['class' => 'bariew\\moduleModule\\Module'],
-        'theme' => ['class' => 'bariew\\themeModule\\Module'],
-        'event' => ['class' => 'bariew\\eventModule\\Module'],
         'page' => ['class' => 'bariew\\pageModule\\Module'],
         'user' => ['class' => 'bariew\\userModule\\Module'],
         'i18n' => ['class' => 'bariew\\i18nModule\\Module'],

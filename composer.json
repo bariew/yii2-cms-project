@@ -16,9 +16,9 @@
     "require": {
         "php": ">=5.4.0",
         "fxp/composer-asset-plugin": "*",
-        "yiisoft/yii2": "2.0.3",
-        "yiisoft/yii2-bootstrap": "2.0.3",
-        "yiisoft/yii2-swiftmailer": "2.0.3",
+        "yiisoft/yii2": "2.0.*",
+        "yiisoft/yii2-bootstrap": "2.0.*",
+        "yiisoft/yii2-swiftmailer": "2.0.*",
         "bariew/yii2-module-cms-module": "dev-master",
         "bariew/yii2-config-cms-module": "dev-master",
         "bariew/yii2-i18n-cms-module": "dev-master",
@@ -26,13 +26,13 @@
         "bariew/yii2-notice-cms-module": "dev-master",
         "bariew/yii2-page-cms-module": "dev-master",
         "bariew/yii2-user-cms-module": "dev-master",
-        "bariew/yii2-event-cms-module": "dev-master",
-        "bariew/yii2-theme-cms-module": "dev-master",
+        "bariew/yii2-event-component": "dev-master",
+        "bariew/yii2-post-cms-module": "dev-master",
         "bariew/phptools": "dev-master"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "2.0.3",
-        "yiisoft/yii2-gii": "2.0.3",
+        "yiisoft/yii2-debug": "2.0.*",
+        "yiisoft/yii2-gii": "2.0.*",
         "codeception/codeception" : "2.0.*",
         "codeception/specify" : "*",
         "codeception/verify" : "*"

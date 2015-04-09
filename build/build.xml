@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project name="mysite.com" default="help">
+    <target name="build">
+        <echo>Deploying application...</echo>
+        <property name="execoutput" value="" />
+        <property name="home" value="/var/www/mysite" />
+        <property name="host" value="mysite.com" />
+        <property name="username" value="ubuntu" />
+        <property name="sshPath" value="/home/me/.ssh" />
+        <exec
+            command="rsync
+                --recursive
+                --links
+                --compress
+                --compress-level=9
+                --delete-after
+                -e 'ssh -c arcfour -o Compression=no -x'
+                --exclude-from=${project.basedir}/exclude.txt
+                ${project.basedir}/../
+                anabena:${home}/"
+            outputProperty="execoutput"
+        />
+
+        <if>
+            <equals arg1="${init}" arg2="true" />
+            <then>
+                <echo>Initializing app</echo>
+                <ssh host="${host}" username="${username}" 
+                     pubkeyfile="${sshPath}/id_rsa.pub"
+                     privkeyfile="${sshPath}/id_rsa"
+                     command='
+                        chmod 0777 ${home}/web/assets
+                        ; chmod 0777 ${home}/web/files
+                        ; chmod 0777 ${home}/runtime
+                        ; chmod 0777 ${home}/config/local
+                        ; chmod 0777 ${home}/web/assets
+                        ; composer global require "fxp/composer-asset-plugin:1.0.*@dev"
+                        ; composer update --no-interaction --working-dir ${home}
+                ' />
+            </then>
+            <else>
+                <ssh host="${host}" username="${username}" 
+                     pubkeyfile="${sshPath}/id_rsa.pub"
+                     privkeyfile="${sshPath}/id_rsa"
+                     command="composer install --no-interaction --working-dir ${home}
+                        ; ${home}/yii migrate --interactive=0
+                        ; rm -rf ${home}/runtime/cache/*" />
+            </else>
+        </if>  
+        
+    </target>
+    <target name="help">
+        <echo>Use "phing build" command</echo>
+    </target>
+</project>
