@@ -65,14 +65,6 @@
 
             ]
         ],
-        'theme' => [
-            'pathMap' => [
-                '@app/views' => '@app/web/themes/null',
-                '@app/modules' => '@app/web/themes/null',
-            ],
-            'basePath' => '@app/web/themes/null',
-            'baseUrl' => '@web/web/themes/null',
-        ],
         'request'   => [
             'cookieValidationKey'   => 'someValidationKey'
         ],
@@ -111,7 +103,7 @@
             'theme' => [
                 'pathMap' => [
                     '@app/views' => '@app/web/themes/null',
-                    '@app/modules' => '@app/web/themes/null',
+                    '@app/modules' => '@app/web/themes/null/modules',
                 ],
                 'basePath' => '@app/web/themes/null',
                 'baseUrl' => '@web/themes/null',
