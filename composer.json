@@ -55,7 +55,6 @@
                     "web/themes": "0777",
                     "config/local": "0777",
                     "yii": "0755",
-
                     "migrations" : "0777",
                     "modules" : "0777"
                 }

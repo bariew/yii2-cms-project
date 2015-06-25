@@ -6,6 +6,7 @@ return [
     'extensions'=> require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
     'components' => [
         'db'    => $mainConfig['components']['db'],
+        'authManager'    => $mainConfig['components']['authManager'],
     ],
     'modules' => $mainConfig['modules'],
 ];
