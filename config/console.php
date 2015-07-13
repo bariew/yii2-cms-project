@@ -8,5 +8,8 @@ return [
         'db'    => $mainConfig['components']['db'],
         'authManager'    => $mainConfig['components']['authManager'],
     ],
+    'controllerMap' => [
+        'migrate'   => 'bariew\moduleMigration\ModuleMigrateController',
+    ],
     'modules' => $mainConfig['modules'],
 ];

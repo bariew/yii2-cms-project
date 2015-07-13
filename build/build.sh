@@ -33,10 +33,10 @@ case "$COMMAND" in
         git push
         git checkout $BRANCH
         ;;
-    delete)
-        git branch -D $BRANCH
-        git push origin :$BRANCH
-        ;;
+#    delete)
+#        git branch -D $BRANCH
+#        git push origin :$BRANCH
+#        ;;
     update)
         composer self-update
         composer global update fxp/composer-asset-plugin
@@ -44,11 +44,11 @@ case "$COMMAND" in
         ./yii migrate --interactive=0
 #        ./yii message console/config/i18n.php --interactive=0
         ;;
-#    test)
-#        ./yii/vendor/bin/codecept run functional --config yii/tests/codeception/backend/codeception.yml
-#        ./yii/vendor/bin/codecept run functional --config yii/tests/codeception/frontend/codeception.yml
-#        ./yii/vendor/bin/codecept run functional --config yii/tests/codeception/api/codeception.yml
-#        ;;
+    test)
+        php -S localhost:8080 -t web
+        ./tests/codeception/bin/yii migrate --interactive=0
+        ./vendor/bin/codecept run $BRANCH --config tests/codeception.yml
+        ;;
     *)
         echo "Available commands: update, delete, test, merge, build, init, initlocal"
         ;;
