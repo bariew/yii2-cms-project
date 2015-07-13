@@ -17,6 +17,8 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
+# important for installation!! you may remove it later
+composer.lock
 
 # Mac DS_Store Files
 .DS_Store
