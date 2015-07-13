@@ -18,11 +18,10 @@ case "$COMMAND" in
         chmod 0777 web/assets
         chmod 0777 web/files
         chmod 0777 runtime
-        chmod 0777 config/local
         chmod 0777 web/assets
         chmod 0777 config/web-local.php
         composer global require "fxp/composer-asset-plugin:1.0.*@dev"
-        composer update
+        composer update  --no-interaction
         ;;
     merge)
         git checkout master
@@ -44,6 +43,7 @@ case "$COMMAND" in
         composer global update fxp/composer-asset-plugin
         composer install
         ./yii migrate --interactive=0
+        rm -rf runtime/cache/*
 #        ./yii message console/config/i18n.php --interactive=0
         ;;
     test)

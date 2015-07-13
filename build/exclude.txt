@@ -9,7 +9,7 @@ Thumbs.db
 .DS_Store
 
 /vendor
-/config/local/*
+/config/web-local.php
 /web/files/*
 /web/assets/*
 /runtime/*

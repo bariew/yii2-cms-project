@@ -29,22 +29,15 @@
                      pubkeyfile="${sshPath}/id_rsa.pub"
                      privkeyfile="${sshPath}/id_rsa"
                      command='
-                        chmod 0777 ${home}/web/assets
-                        ; chmod 0777 ${home}/web/files
-                        ; chmod 0777 ${home}/runtime
-                        ; chmod 0777 ${home}/config/local
-                        ; chmod 0777 ${home}/web/assets
-                        ; composer global require "fxp/composer-asset-plugin:1.0.*@dev"
-                        ; composer update --no-interaction --working-dir ${home}
+                        cd ${home}
+                        sh build/build.sh initlocal
                 ' />
             </then>
             <else>
                 <ssh host="${host}" username="${username}" 
                      pubkeyfile="${sshPath}/id_rsa.pub"
                      privkeyfile="${sshPath}/id_rsa"
-                     command="composer install --no-interaction --working-dir ${home}
-                        ; ${home}/yii migrate --interactive=0
-                        ; rm -rf ${home}/runtime/cache/*" />
+                     command="sh build/build.sh update" />
             </else>
         </if>  
         
