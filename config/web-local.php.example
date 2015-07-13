@@ -1,0 +1,21 @@
+<?php return array (
+    'bootstrap' => ['log', 'debug'],
+    'components' =>
+        array (
+            'db' =>
+                array (
+                    'class' => '\\yii\\db\\Connection',
+                    'dsn' => 'mysql:host=localhost;dbname=nullcms',
+                    'username' => 'root',
+                    'password' => 'root',
+                    'charset' => 'utf8',
+                    'enableSchemaCache' => '1',
+                    'schemaCacheDuration' => '3600',
+                ),
+        ),
+    'modules' => [
+        'module' => ['class' => 'bariew\\moduleModule\\Module'],
+        'gii' => ['class' => 'yii\\gii\\Module'],
+        'debug' => ['class' => 'yii\\debug\\Module'],
+    ]
+);

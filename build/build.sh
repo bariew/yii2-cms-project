@@ -14,11 +14,13 @@ case "$COMMAND" in
         phing -f build/build.xml build -Dinit=true
         ;;
     initlocal)
+        mv config/web-local.php.example config/web-local.php
         chmod 0777 web/assets
         chmod 0777 web/files
         chmod 0777 runtime
         chmod 0777 config/local
         chmod 0777 web/assets
+        chmod 0777 config/web-local.php
         composer global require "fxp/composer-asset-plugin:1.0.*@dev"
         composer update
         ;;

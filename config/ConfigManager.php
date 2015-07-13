@@ -54,7 +54,7 @@ class ConfigManager
 
     private static function getWriteFile()
     {
-        return self::getFile(\Yii::getAlias('@app/config/local/main.php'));
+        return self::getFile(\Yii::getAlias('@app/config/web-local.php'));
     }
 
     /**

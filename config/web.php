@@ -116,7 +116,6 @@
     ],
     'modules' => [
         'config' => ['class' => 'bariew\\configModule\\Module'],
-        'module' => ['class' => 'bariew\\moduleModule\\Module'],
         'page' => ['class' => 'bariew\\pageModule\\Module'],
         'user' => ['class' => 'bariew\\userModule\\Module'],
         'i18n' => ['class' => 'bariew\\i18nModule\\Module'],
@@ -126,4 +125,4 @@
     'params'    => [
         'adminEmail'    => 'your.email@site.com'
     ]
-], (file_exists(__DIR__ . '/local/main.php') ? (require __DIR__ . '/local/main.php') : []));
+], (file_exists(__DIR__ . '/web-local.php') ? (require __DIR__ . '/web-local.php') : []));
