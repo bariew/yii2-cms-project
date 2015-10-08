@@ -1,20 +1,3 @@
-
-var $View = {
-    popover : function (el) {
-        el.popover({
-            html: true,
-            content: function () {
-                switch (el.prop('tagName')) {
-                    case 'IMG' :
-                        return '<img src="' + $(this).data('popover') + '" />';
-                    default :
-                        return $(this).data('popover');
-                }
-            }
-        }).popover("show");
-    }
-}
-
 /**
  * Created by pt on 21.07.15.
  */
@@ -58,36 +41,6 @@ $(document).ready(function(){
             close ? $.colorbox.close() : $.colorbox({html:data});
         });
         return false;
-    });
-
-    /** SORTABLE */
-    $(document).on('mouseover', '.sortable-handle', function(e){
-        $(this).closest('.sortable').sortable({
-            handle:'.sortable-handle',
-            'update' : function(e, ui) { eval(ui.item.data('sort'));}
-        });
-    });
-
-    /** POPOVER */
-    $(document).on('mouseenter', '*[data-popover]', function(e) {
-        $View.popover($(this))
-    });
-
-    $(document).on('mouseleave', '*[data-popover]', function(e) {
-        $(this).popover("hide");
-    });
-
-    $(document).on('click', '*[data-popover]', function(e) {
-        if ($('#colorbox:visible').length) {
-            return;
-        }
-        $.colorbox({
-            html : '<img width="'+($(window).width()-60)+'px" src="'+$(this).data("popover")+'" />'
-        });
-    });
-
-    $(document).on('click', '.wrap', function(e) {
-        $('*').popover("hide");
     });
 
     /** GRID GROUP */
