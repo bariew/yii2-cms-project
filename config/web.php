@@ -1,7 +1,8 @@
 <?php return \yii\helpers\ArrayHelper::merge([
     'id' => 'app',
     'name'  => 'NullCMS',
-    'language'  => 'en',
+    'language'  => 'ru',
+    'timeZone' => 'Europe/Moscow',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
@@ -138,4 +139,4 @@
     'params'    => [
         'adminEmail'    => 'your.email@site.com'
     ]
-], require __DIR__ . DIRECTORY_SEPARATOR . '/web-local.php');
+], require __DIR__ . DIRECTORY_SEPARATOR . 'web-local.php');

@@ -7,8 +7,6 @@
 
 namespace app\controllers;
 
-
-use app\modules\campaign\components\Notification;
 use yii\console\Controller;
 
 /**
@@ -28,14 +26,6 @@ class ConsoleController extends Controller
     public function actionCronHourly()
     {
         switch (date('H')) {
-            case '07' :
-                echo "Running campaign email notifications...\n";
-                Notification::emailCheck();
-                break;
-            case '08' :
-                echo "Running campaign sms notifications...\n";
-                Notification::smsCheck();
-                break;
             default: echo "Nothing to run\n";
         }
         echo "Done!\n";

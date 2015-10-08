@@ -30,7 +30,7 @@
                      privkeyfile="${sshPath}/id_rsa"
                      command='
                         cd ${home}
-                        ; sh build/build.sh initlocal
+                        ; sh build/build.sh init
                 ' />
             </then>
             <else>

@@ -8,8 +8,14 @@ BRANCH=$2;
 DIR=$( cd "$( dirname $0 )/../" && pwd );
 cd $DIR;
 case "$COMMAND" in
+    create)
+        phing -f build/build.xml build -Dinit=true
+        ;;
+    build)
+        phing -f build/build.xml build
+        ;;
     init)
-        mv config/web-local.php.example config/web-local.php
+        cp config/web-local.php.example config/web-local.php
         chmod 0777 web/assets
         chmod 0777 web/files
         chmod 0777 runtime
@@ -34,10 +40,6 @@ case "$COMMAND" in
         git push
         git checkout $BRANCH
         ;;
-#    delete)
-#        git branch -D $BRANCH
-#        git push origin :$BRANCH
-#        ;;
     update)
         ./yii console/backup
         php composer.phar self-update
@@ -57,6 +59,6 @@ case "$COMMAND" in
         kill -9 $PID
         ;;
     *)
-        echo "Available commands: 2update, delete, test, merge, build, init, initlocal"
+        echo "Available commands: create, build, update, test, merge, init"
         ;;
 esac

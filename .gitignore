@@ -16,8 +16,6 @@ Thumbs.db
 /vendor
 /config/web-local.php
 
-# composer itself is not needed
-composer.phar
 # important for installation!! you may remove it later
 composer.lock
 

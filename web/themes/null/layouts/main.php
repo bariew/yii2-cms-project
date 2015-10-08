@@ -27,31 +27,19 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
     <div class="wrap">
         <?php
-
         NavBar::begin([
             'brandLabel' => Yii::$app->name,
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar-inverse navbar-fixed-top',
+                'style' => 'z-index: 9999;'
             ],
         ]);
-        echo \yii\bootstrap\Nav::widget([
-            'options' => ['class' => 'navbar-nav navbar'],
-            'items' => [
-                ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/item/index']],
-                ['label' => Yii::t('app', 'Users'), 'url' => ['/user/user/index']],
-                ['label' => Yii::t('app', 'Settings'), 'items' => [
-                    ['label' => Yii::t('app', 'Rbac'), 'url' => ['/rbac/auth-item/index']],
-                    ['label' => Yii::t('app', 'i18n'), 'url' => ['/i18n/message/index']],
-                ]],
-                Yii::$app->user->isGuest
-                    ? ['label'    => Yii::t('app', 'Login'), 'url' => ['/user/default/login']]
-                    : ['label' => Yii::$app->user->identity->username, 'items' => [
-                        ['label'    => Yii::t('app', 'Profile'), 'url' => ['/user/default/update']],
-                        ['label'    => Yii::t('app', 'Logout'), 'url' => ['/user/default/logout']],
-                ]],
-            ],
+        echo \bariew\moduleModule\widgets\MenuWidget::widget([
+            'direction' => 'left',
+            'options' => ['class' => 'navbar-nav navbar-right']
         ]);
+
         NavBar::end();
         ?>
         <div class="container">
