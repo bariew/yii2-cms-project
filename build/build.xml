@@ -8,7 +8,7 @@
         <property name="username" value="ubuntu" />
         <property name="sshPath" value="/home/me/.ssh" />
         <exec
-            command="rsync
+                command="rsync
                 --recursive
                 --links
                 --compress
@@ -17,30 +17,30 @@
                 -e 'ssh -c arcfour -o Compression=no -x'
                 --exclude-from=${project.basedir}/exclude.txt
                 ${project.basedir}/../
-                anabena:${home}/"
-            outputProperty="execoutput"
-        />
+                ${username}@${host}:${home}/"
+                outputProperty="execoutput"
+                />
 
         <if>
             <equals arg1="${init}" arg2="true" />
             <then>
                 <echo>Initializing app</echo>
-                <ssh host="${host}" username="${username}" 
+                <ssh host="${host}" username="${username}"
                      pubkeyfile="${sshPath}/id_rsa.pub"
                      privkeyfile="${sshPath}/id_rsa"
                      command='
                         cd ${home}
-                        sh build/build.sh initlocal
+                        ; sh build/build.sh initlocal
                 ' />
             </then>
             <else>
-                <ssh host="${host}" username="${username}" 
+                <ssh host="${host}" username="${username}"
                      pubkeyfile="${sshPath}/id_rsa.pub"
                      privkeyfile="${sshPath}/id_rsa"
-                     command="sh build/build.sh update" />
+                     command="cd ${home}
+                        ;sh build/build.sh update" />
             </else>
-        </if>  
-        
+        </if>
     </target>
     <target name="help">
         <echo>Use "phing build" command</echo>

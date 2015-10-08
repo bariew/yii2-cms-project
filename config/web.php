@@ -3,7 +3,7 @@
     'name'  => 'NullCMS',
     'language'  => 'en',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => [],
+    'bootstrap' => ['log'],
     'components' => [
         'db' => [
             'class' => '\\yii\\db\\Connection',
@@ -33,9 +33,13 @@
             ],
         ],
         'i18n'  => [
+            'class' => 'bariew\i18nModule\components\I18N',
             'translations' => [
-                '*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                'modules/*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                ],
+                'app' => [
+                    'class' => 'yii\i18n\DbMessageSource',
                 ],
             ],
         ],
@@ -71,6 +75,11 @@
         'authManager'   => [
             'class' => '\yii\rbac\DbManager',
             'cache' => 'yii\caching\FileCache',
+            'defaultRoles' => [
+                'site/error', 'page/default/view', 'user/default/logout',
+                'user/default/login', 'user/default/register', 'user/default/auth',
+                'user/default/confirm'
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -91,7 +100,7 @@
 //            ],
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'traceLevel' => 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
@@ -113,16 +122,20 @@
                 'baseUrl' => '@web/themes/null',
             ],
         ],
+        'formatter' => [
+            'dateFormat' => 'php:Y-m-d'
+        ],
+        'assetManager' => [
+            'linkAssets' => true,
+        ],
     ],
     'modules' => [
-        'config' => ['class' => 'bariew\\configModule\\Module'],
         'page' => ['class' => 'bariew\\pageModule\\Module'],
         'user' => ['class' => 'bariew\\userModule\\Module'],
         'i18n' => ['class' => 'bariew\\i18nModule\\Module'],
         'rbac' => ['class' => 'bariew\\rbacModule\\Module'],
-        'notice' => ['class' => 'bariew\\noticeModule\\Module'],
     ],
     'params'    => [
         'adminEmail'    => 'your.email@site.com'
     ]
-], (file_exists(__DIR__ . '/web-local.php') ? (require __DIR__ . '/web-local.php') : []));
+], require __DIR__ . DIRECTORY_SEPARATOR . '/web-local.php');

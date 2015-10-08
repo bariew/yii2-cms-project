@@ -7,6 +7,9 @@
 
 namespace app\controllers;
 
+use app\modules\campaign\controllers\DashboardController;
+use app\modules\user\models\User;
+use Codeception\Module\Yii2;
 use yii\web\Controller;
 
 /**

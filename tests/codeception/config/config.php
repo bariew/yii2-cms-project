@@ -4,6 +4,7 @@
  */
 return \yii\helpers\ArrayHelper::merge([
     'language' => 'en-US',
+    'bootstrap' => [],
     'controllerMap' => [
         'fixture' => [
             'class' => 'yii\faker\FixtureController',
@@ -13,8 +14,9 @@ return \yii\helpers\ArrayHelper::merge([
         ],
     ],
     'components' => [
+        'language' => 'en',
         'db' => [
-            'dsn' => 'mysql:host=localhost;dbname=test',
+            'dsn' => 'mysql:host=localhost;dbname=campman_test',
             'username' => '',
             'password' => '',
         ],
@@ -24,5 +26,13 @@ return \yii\helpers\ArrayHelper::merge([
         'urlManager' => [
             'showScriptName' => true,
         ],
+        'log' => [],
     ],
+    'params' => [
+        'baseUrl' => 'http://localhost:8080',
+        'auth' => [
+            'username' => 'admin',
+            'password' => 'admin',
+        ],
+    ]
 ], (file_exists(__DIR__ . '/config-local.php') ? (require __DIR__ . '/config-local.php') : []));

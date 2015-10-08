@@ -5,23 +5,23 @@
 
 COMMAND=$1;
 BRANCH=$2;
-
+DIR=$( cd "$( dirname $0 )/../" && pwd );
+cd $DIR;
 case "$COMMAND" in
-    build)
-        phing -f build/build.xml build
-        ;;
     init)
-        phing -f build/build.xml build -Dinit=true
-        ;;
-    initlocal)
-        mv config/web-local.php.example config/web-local.php
+        cp config/web-local.php.example config/web-local.php
         chmod 0777 web/assets
         chmod 0777 web/files
         chmod 0777 runtime
         chmod 0777 web/assets
         chmod 0777 config/web-local.php
-        composer global require "fxp/composer-asset-plugin:1.0.*@dev"
-        composer update  --no-interaction
+        php composer.phar global require "codeception/codeception=2.0.*"
+        php composer.phar global require "codeception/specify=*"
+        php composer.phar global require "codeception/verify=*"
+        php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
+        php composer.phar update  --no-interaction
+        ln -s ~/.composer/vendor/bin/codecept /usr/local/bin/codecept
+        ln -s ~/.composer/vendor/codeception $DIR/vendor/codeception
         ;;
     merge)
         git checkout master
@@ -39,19 +39,24 @@ case "$COMMAND" in
 #        git push origin :$BRANCH
 #        ;;
     update)
-        composer self-update
-        composer global update fxp/composer-asset-plugin
-        composer install
+        ./yii console/backup
+        php composer.phar self-update
+        php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
+        php composer.phar install
         ./yii migrate --interactive=0
         rm -rf runtime/cache/*
-#        ./yii message console/config/i18n.php --interactive=0
+        ./yii message config/i18n.php --interactive=0 > /dev/null
         ;;
     test)
-        php -S localhost:8080 -t web
+        # Turn off debugger and set server config for index-test.php
+        php -S localhost:8080 -t web & PID=$!
+        rm -rf runtime/cache/*
         ./tests/codeception/bin/yii migrate --interactive=0
-        ./vendor/bin/codecept run $BRANCH --config tests/codeception.yml
+        ./tests/codeception/bin/yii console/generate --interactive=0
+        codecept run $BRANCH --config tests/codeception.yml
+        kill -9 $PID
         ;;
     *)
-        echo "Available commands: update, delete, test, merge, build, init, initlocal"
+        echo "Available commands: 2update, delete, test, merge, build, init, initlocal"
         ;;
 esac
