@@ -20,11 +20,7 @@ and MySQL 5 database engine.
 INSTALLATION
 ------------
 
-### php composer.phar self-update
-
-### php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
-
-### php composer.phar create-project bariew/yii2-cms-project
+### run sh build/build.sh initlocal
 
 
 
