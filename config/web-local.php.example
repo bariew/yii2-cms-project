@@ -12,7 +12,7 @@ return [
             'useFileTransport' => true,
         ],
         'db' => [
-            'dsn' => 'mysql:host=localhost;dbname=campman',
+            'dsn' => 'mysql:host=localhost;dbname=nullcms',
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',
