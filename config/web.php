@@ -49,8 +49,9 @@
             'showScriptName'        => false,
             'enableStrictParsing'   => true,
             'rules' => [
-                '<_m>/<_c>/<_a>' => '<_m>/<_c>/<_a>',
                 '/' => 'page/default/view',
+                '<controller>/<action>' => '<controller>/<action>',
+                '<module>/<controller>/<action>' => '<module>/<controller>/<action>',
                 '<url:\\S+>' => 'page/default/view',
             ],
         ],
@@ -88,7 +89,7 @@
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'mail' => [
+        'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
 //            'transport' => [
@@ -105,6 +106,7 @@
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
+                    'fileMode' => 0777,
                     'levels' => ['error', 'warning'],
                     'except' => [
                         'yii\web\HttpException:404',
@@ -124,10 +126,13 @@
             ],
         ],
         'formatter' => [
-            'dateFormat' => 'php:Y-m-d'
+            'dateFormat' => 'php:Y-m-d',
+            'timeFormat' => 'php:H:i',
+            'datetimeFormat' => 'php:Y-m-d H:i',
         ],
         'assetManager' => [
             'linkAssets' => true,
+            'appendTimestamp' => true,
         ],
     ],
     'modules' => [
@@ -137,6 +142,7 @@
         'rbac' => ['class' => 'bariew\\rbacModule\\Module'],
     ],
     'params'    => [
+        'baseUrl' => 'mysite.com',
         'adminEmail'    => 'your.email@site.com'
     ]
-], require __DIR__ . DIRECTORY_SEPARATOR . 'web-local.php');
+], require __DIR__ . DIRECTORY_SEPARATOR . 'local.php');
