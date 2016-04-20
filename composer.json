@@ -30,7 +30,8 @@
       "kartik-v/yii2-widget-select2": "dev-master",
       "kartik-v/yii2-widget-depdrop": "dev-master",
       "kartik-v/yii2-widget-fileinput": "dev-master",
-      "bariew/phptools": "dev-master"
+      "bariew/phptools": "dev-master",
+      "himiklab/yii2-colorbox-widget": "^1.0"
     },
     "require-dev": {
       "yiisoft/yii2-codeception": "2.0.*",
