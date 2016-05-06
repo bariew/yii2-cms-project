@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
  * @var \yii\web\View $this
  * @var string $content
  */
+raoul2000\bootswatch\BootswatchAsset::$theme = 'journal';
 AppAsset::register($this);
 \himiklab\colorbox\Colorbox::widget(['coreStyle' => 4]);
 

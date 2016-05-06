@@ -1,0 +1,44 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+return [
+    'bootstrap' => ['log', 'debug'],
+    'language' => 'en',
+    'components' => [
+        'mail' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => true,
+        ],
+        'db' => [
+            'dsn' => 'mysql:host=localhost;dbname=nullcms',
+            'username' => 'root',
+            'password' => 'root',
+            'charset' => 'utf8',
+            'enableSchemaCache' => '1',
+            'schemaCacheDuration' => '3600',
+        ],
+    ],
+    'modules' => [
+        'module' => [
+            'class' => 'bariew\moduleModule\Module',
+            'params' => [
+                'menuOrder' => '',
+                'enableMenu' => '0',
+            ],
+        ],
+        'gii' => [
+            'class' => 'yii\gii\Module',
+//            'generators' => [
+//                'model' => [
+//                    'templates' => ['access_behavior' => '@app/modules/gii/generators/model/default']
+//                ],
+//                'crud' => [
+//                    'templates' => ['access_behavior' => '@app/modules/gii/generators/crud/default']
+//                ],
+//            ]
+        ],
+        'debug' => ['class' => 'yii\debug\Module'],
+    ],
+];
