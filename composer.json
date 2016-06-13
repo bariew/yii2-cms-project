@@ -19,20 +19,21 @@
       "yiisoft/yii2": ">=2.0.5",
       "yiisoft/yii2-bootstrap": "*",
       "yiisoft/yii2-swiftmailer": "*",
-      "bariew/yii2-module-cms-module": "dev-master",
+      "bariew/yii2-tools": "dev-master",
+      "bariew/yii2-module-migration-controller": "^1.3",
       "bariew/yii2-i18n-cms-module": "dev-master",
       "bariew/yii2-rbac-cms-module": "dev-master",
       "bariew/yii2-page-cms-module": "dev-master",
       "bariew/yii2-user-cms-module": "dev-master",
       "bariew/yii2-event-component": "dev-master",
       "bariew/yii2-post-cms-module": "dev-master",
-      "vova07/yii2-imperavi-widget": "^1.0@dev",
       "kartik-v/yii2-widget-select2": "dev-master",
       "kartik-v/yii2-widget-depdrop": "dev-master",
       "kartik-v/yii2-widget-fileinput": "dev-master",
-      "bariew/phptools": "dev-master",
+      "vova07/yii2-imperavi-widget": "^1.0@dev",
       "himiklab/yii2-colorbox-widget": "^1.0",
-        "raoul2000/yii2-bootswatch-asset": "^1.2"
+      "raoul2000/yii2-bootswatch-asset": "^1.2",
+      "dizews/yii2-db-console": "*"
     },
     "require-dev": {
       "yiisoft/yii2-codeception": "2.0.*",
@@ -46,7 +47,8 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "yii\\composer\\Installer::postCreateProject"
+            "yii\\composer\\Installer::postCreateProject",
+            "php -r \"copy('config/local.php.example', 'config/local.php');\""
         ]
     },
     "extra": {
@@ -56,7 +58,6 @@
                     "runtime": "0777",
                     "web/assets": "0777",
                     "web/files": "0777",
-                    "web/themes": "0777",
                     "yii": "0755",
                     "migrations" : "0777",
                     "modules" : "0777"

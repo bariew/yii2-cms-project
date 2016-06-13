@@ -34,7 +34,7 @@
             ],
         ],
         'i18n'  => [
-            'class' => 'bariew\i18nModule\components\I18N',
+            //'class' => 'bariew\i18nModule\components\I18N',
             'translations' => [
                 'modules/*' => [
                     'class' => 'yii\i18n\DbMessageSource',

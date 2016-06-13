@@ -20,7 +20,7 @@ and MySQL 5 database engine.
 INSTALLATION
 ------------
 
-### run sh build/build.sh initlocal
+### run sh build.sh build
 
 
 

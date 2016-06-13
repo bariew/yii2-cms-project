@@ -29,37 +29,35 @@ case "$COMMAND" in
         /usr/bin/rsync --recursive --links --compress --compress-level=9 --delete-after -e '/usr/bin/ssh -c arcfour -o Compression=no -x' --exclude-from=$DIR/.gitignore $DIR/ $SERVER:$PATH/
         /usr/bin/ssh $SERVER sh $PATH/build.sh $PARAM2 2>&1
         ;;
-    init)
-        cp config/local.php.example config/local.php
-        chmod 0777 web/assets
-        chmod 0777 web/files
-        chmod 0777 runtime
-        chmod 0777 web/assets
-        chmod 0777 config/local.php
-#        php composer.phar global require "codeception/codeception=2.0.*"
-#        php composer.phar global require "codeception/specify=*"
-#        php composer.phar global require "codeception/verify=*"
-        php composer.phar global require "fxp/composer-asset-plugin"
-#        php composer.phar update  --no-interaction
-#        ln -s ~/.composer/vendor/bin/codecept /usr/local/bin/codecept
-#        ln -s ~/.composer/vendor/codeception $DIR/vendor/codeception
-        ;;
     merge)
         BRANCH=$( git rev-parse --abbrev-ref HEAD );
 	    git add -A
         git commit -am "auto"
         git push -u origin $BRANCH
-        git checkout master
+        git checkout $PARAM1
         git fetch
-        git reset --hard origin/master
+        git reset --hard origin/$PARAM1
         git merge --no-ff --no-edit $BRANCH
         git push
+        git checkout -
         ;;
     update)
-        php composer.phar install
+        chmod 0777 web/assets
+        chmod -R 0777 web/files
+        chmod 0777 runtime
+        chmod +x yii
+        cp --no-clobber config/local.php.example config/local.php
+        php composer.phar install --no-dev --prefer-dist
         ./yii migrate --interactive=0
-        ./yii message config/i18n.php --interactive=0 > /dev/null
+        #./yii message $APP/config/i18n.php
         rm -rf runtime/cache/*
+        ;;
+    dev)
+        #php composer.phar update --prefer-source
+        ./yii migrate --interactive=0
+        ./yii message $APP/config/i18n.php
+        rm -rf $APP/runtime/cache/*
+        #find $APP/messages -type f -print0 | xargs -0 sed -i 's/@@//g'
         ;;
     test)
         # Turn off debugger and set server config for index-test.php
@@ -67,12 +65,13 @@ case "$COMMAND" in
         rm -rf runtime/cache/*
         ./tests/codeception/bin/yii migrate --interactive=0
         ./tests/codeception/bin/yii console/generate --interactive=0
-        codecept run $PARAM1 $PARAM2 --config tests/codeception.yml
-        kill -9 $PID
-        ./yii console/sniff
+        ~/.composer/vendor/codeception/codeception/codecept run $PARAM1 $PARAM2 --config $APP/tests/codeception.yml
+        #kill -9 $PID
+        #./yii console/sniff
+        fuser -k 8080/tcp
         rm -rf runtime/cache/*
         ;;
     *)
-        echo "Available commands: update, delete, test, merge, build, init, initlocal"
+        echo "Available commands: update, delete, test, merge, build"
         ;;
 esac
