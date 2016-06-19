@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\Alert;
 use yii\widgets\Breadcrumbs;
 use app\web\themes\null\AppAsset;
 use yii\bootstrap\NavBar;
@@ -36,23 +35,17 @@ AppAsset::register($this);
                 'style' => 'z-index: 9999;'
             ],
         ]);
-        echo \bariew\moduleModule\widgets\MenuWidget::widget([
+        echo \bariew\yii2Tools\widgets\ModuleMenu::widget([
             'direction' => 'left',
             'options' => ['class' => 'navbar-nav navbar-right']
         ]);
-
         NavBar::end();
         ?>
         <div class="container">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
-            <?php foreach(Yii::$app->session->getAllFlashes() as $key=>$message): ?>
-                <?= Alert::widget([
-                    'options' => ['class' => 'alert-'.($key == 'error' ? 'danger' : $key)],
-                    'body' => implode("<hr />", (array) $message),
-                ]); ?>
-            <?php endforeach; ?>
+            <?= \bariew\yii2Tools\widgets\Alert::widget() ?>
             <?= $content ?>
         </div>
     </div>

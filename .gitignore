@@ -1,4 +1,11 @@
-.git
+/vendor
+/config/local.php
+/web/assets
+/web/files
+/runtime
+/rbac/assignments.php
+
+# phpstorm project files
 .idea
 nbproject
 .buildpath
@@ -6,5 +13,3 @@ nbproject
 .settings
 Thumbs.db
 .DS_Store
-/vendor
-/config/local.php

@@ -1,8 +1,4 @@
 <?php
-
-/** @var \yii\web\View $this */
-?>
-<?php
 $mainConfig = require(__DIR__ . DIRECTORY_SEPARATOR . 'web.php');
 unset(
     $mainConfig['bootstrap'],

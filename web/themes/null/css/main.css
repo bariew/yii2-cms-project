@@ -89,3 +89,13 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+#colorbox #cboxClose {
+    top: 0;
+    right: 0;
+    height: 20px;
+}
+#cboxLoadedContent{
+    margin-top:30px;
+    margin-bottom:0;
+}

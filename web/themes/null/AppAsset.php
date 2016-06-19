@@ -17,7 +17,7 @@ class AppAsset extends AssetBundle
 {
     public $sourcePath = '@webroot/themes/null';
     public $css = [
-        'css/site.css',
+        'css/main.css',
     ];
     public $js = [
         'js/main.js'

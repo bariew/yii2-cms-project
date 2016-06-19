@@ -48,6 +48,46 @@
             "time": "2015-12-29 11:19:32"
         },
         {
+            "name": "bariew/yii2-abstract-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bariew/yii2-abstract-module.git",
+                "reference": "36488fd4c3cfa768468564be65fab4291dacfb1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bariew/yii2-abstract-module/zipball/36488fd4c3cfa768468564be65fab4291dacfb1c",
+                "reference": "36488fd4c3cfa768468564be65fab4291dacfb1c",
+                "shasum": ""
+            },
+            "require": {
+                "bariew/yii2-tools": "dev-master"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "bariew\\abstractModule\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Bariev Pavel",
+                    "email": "bariew@yandex.ru"
+                }
+            ],
+            "keywords": [
+                "abstract",
+                "module",
+                "yii2"
+            ],
+            "time": "2016-06-15 12:15:49"
+        },
+        {
             "name": "bariew/yii2-dropdown-x",
             "version": "dev-master",
             "source": {
@@ -355,15 +395,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bariew/yii2-post-cms-module.git",
-                "reference": "b9f10d7e9e1aa27a35c130e38de81b67d3e29332"
+                "reference": "f341260c007eba2aec42aab45a3231700d793e40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bariew/yii2-post-cms-module/zipball/b9f10d7e9e1aa27a35c130e38de81b67d3e29332",
-                "reference": "b9f10d7e9e1aa27a35c130e38de81b67d3e29332",
+                "url": "https://api.github.com/repos/bariew/yii2-post-cms-module/zipball/f341260c007eba2aec42aab45a3231700d793e40",
+                "reference": "f341260c007eba2aec42aab45a3231700d793e40",
                 "shasum": ""
             },
             "require": {
+                "bariew/yii2-abstract-module": "*",
                 "bariew/yii2-imperavi-redactor": "dev-master",
                 "bariew/yii2-node-tree": "2.0.*",
                 "bariew/yii2-tools": "dev-master",
@@ -390,7 +431,7 @@
                 "post",
                 "yii2"
             ],
-            "time": "2015-10-08 19:29:09"
+            "time": "2016-06-16 21:27:25"
         },
         {
             "name": "bariew/yii2-rbac-cms-module",
@@ -443,12 +484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bariew/yii2-tools.git",
-                "reference": "4bc4b283c85cac2094be68c47742746c15006750"
+                "reference": "ba69d0e67e75833e03b157b8a0b5f22d09a31242"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bariew/yii2-tools/zipball/4bc4b283c85cac2094be68c47742746c15006750",
-                "reference": "4bc4b283c85cac2094be68c47742746c15006750",
+                "url": "https://api.github.com/repos/bariew/yii2-tools/zipball/ba69d0e67e75833e03b157b8a0b5f22d09a31242",
+                "reference": "ba69d0e67e75833e03b157b8a0b5f22d09a31242",
                 "shasum": ""
             },
             "require": {
@@ -476,7 +517,7 @@
                 "tools",
                 "yii2"
             ],
-            "time": "2016-06-13 09:29:49"
+            "time": "2016-06-17 04:46:50"
         },
         {
             "name": "bariew/yii2-user-cms-module",
@@ -484,15 +525,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bariew/yii2-user-cms-module.git",
-                "reference": "d9f5658cae45308c0916bc99976272a4ec906490"
+                "reference": "ba23dcc171de4217152bbd98e9d9f5182af1c2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bariew/yii2-user-cms-module/zipball/d9f5658cae45308c0916bc99976272a4ec906490",
-                "reference": "d9f5658cae45308c0916bc99976272a4ec906490",
+                "url": "https://api.github.com/repos/bariew/yii2-user-cms-module/zipball/ba23dcc171de4217152bbd98e9d9f5182af1c2eb",
+                "reference": "ba23dcc171de4217152bbd98e9d9f5182af1c2eb",
                 "shasum": ""
             },
             "require": {
+                "bariew/yii2-abstract-module": "*",
                 "bariew/yii2-tools": "dev-master",
                 "yiisoft/yii2-authclient": "~2.0.0"
             },
@@ -519,7 +561,7 @@
                 "user",
                 "yii2"
             ],
-            "time": "2016-04-20 09:57:41"
+            "time": "2016-06-16 21:27:43"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -972,12 +1014,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/composer-asset-plugin.git",
-                "reference": "7f3338b433ca21ae8e8f56d4b5a82f0146242dce"
+                "reference": "b2cc94c8018a7f4d61d1e0ab0d211a2713daa4fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/7f3338b433ca21ae8e8f56d4b5a82f0146242dce",
-                "reference": "7f3338b433ca21ae8e8f56d4b5a82f0146242dce",
+                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/b2cc94c8018a7f4d61d1e0ab0d211a2713daa4fe",
+                "reference": "b2cc94c8018a7f4d61d1e0ab0d211a2713daa4fe",
                 "shasum": ""
             },
             "require": {
@@ -1020,7 +1062,7 @@
                 "npm",
                 "package"
             ],
-            "time": "2016-05-28 15:47:37"
+            "time": "2016-06-15 15:39:16"
         },
         {
             "name": "himiklab/yii2-colorbox-widget",
@@ -1323,12 +1365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
-                "reference": "14cda11159a217db3056160e0ec8303979a9febd"
+                "reference": "3b8f6819f2cd01becff5251b8b952ac3e57b903a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/14cda11159a217db3056160e0ec8303979a9febd",
-                "reference": "14cda11159a217db3056160e0ec8303979a9febd",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/3b8f6819f2cd01becff5251b8b952ac3e57b903a",
+                "reference": "3b8f6819f2cd01becff5251b8b952ac3e57b903a",
                 "shasum": ""
             },
             "require": {
@@ -1370,7 +1412,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-06-03 18:15:55"
+            "time": "2016-06-16 06:53:01"
         },
         {
             "name": "kartik-v/yii2-widget-select2",
@@ -1378,12 +1420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-                "reference": "00c29bf2ea42df7be2ae6aa2b2be049807a8134b"
+                "reference": "5ca33a716188422e85560cdce0cb2110a998a618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/00c29bf2ea42df7be2ae6aa2b2be049807a8134b",
-                "reference": "00c29bf2ea42df7be2ae6aa2b2be049807a8134b",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/5ca33a716188422e85560cdce0cb2110a998a618",
+                "reference": "5ca33a716188422e85560cdce0cb2110a998a618",
                 "shasum": ""
             },
             "require": {
@@ -1423,7 +1465,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-06-03 10:10:39"
+            "time": "2016-06-14 13:48:39"
         },
         {
             "name": "raoul2000/yii2-bootswatch-asset",
@@ -1479,19 +1521,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "1460e98b53d2f916f1b4123069c96c90844a1a4d"
+                "reference": "cb756ca1d13dfca2bce28b47579ac13dfb408579"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/1460e98b53d2f916f1b4123069c96c90844a1a4d",
-                "reference": "1460e98b53d2f916f1b4123069c96c90844a1a4d",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cb756ca1d13dfca2bce28b47579ac13dfb408579",
+                "reference": "cb756ca1d13dfca2bce28b47579ac13dfb408579",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1,<0.9.4"
+                "mockery/mockery": "~0.9.1"
             },
             "type": "library",
             "extra": {
@@ -1524,7 +1566,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-05-11 12:36:48"
+            "time": "2016-06-14 20:23:16"
         },
         {
             "name": "thomaspark/bootswatch",
@@ -2397,12 +2439,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "ad215b7f8c679e11e70ff3dc29c7306f28cef576"
+                "reference": "2385e71733d567b72d4e46ddde77f97904448c14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/ad215b7f8c679e11e70ff3dc29c7306f28cef576",
-                "reference": "ad215b7f8c679e11e70ff3dc29c7306f28cef576",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/2385e71733d567b72d4e46ddde77f97904448c14",
+                "reference": "2385e71733d567b72d4e46ddde77f97904448c14",
                 "shasum": ""
             },
             "require": {
@@ -2442,7 +2484,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2016-05-12 20:54:42"
+            "time": "2016-06-15 11:31:00"
         }
     ],
     "aliases": [],
