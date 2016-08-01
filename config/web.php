@@ -17,6 +17,7 @@
         ],
         'user' => [
             'identityClass' => 'bariew\\userModule\\models\\User',
+            'loginUrl' => '/user/default/login'
         ],
         'authClientCollection' => [
             'class' => 'yii\authclient\Collection',

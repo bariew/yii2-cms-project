@@ -21,7 +21,7 @@ class ConsoleController extends Controller
 {
     /**
      * Runs hourly cron jobs
-     * @example echo "0 * * * * /var/www/campman/yii console/cron-hourly" | crontab -e
+     * @example echo "0 * * * * /var/www/myApp/yii console/cron-hourly" | crontab -e
      */
     public function actionCronHourly()
     {
@@ -44,14 +44,5 @@ class ConsoleController extends Controller
             return !preg_match('/^data_.*$/', $v);
         }));
         exec("mysqldump -u$user -p$pass $db $tables > " . \Yii::getAlias("@app/runtime/$name"));
-    }
-
-    /**
-     * Generates data from fixtures ! removes old table data.
-     * @throws \yii\db\Exception
-     */
-    public function actionGenerate()
-    {
-        \bariew\yii2Tools\tests\FixtureManager::init();
     }
 }
